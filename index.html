@@ -1,1 +1,122 @@
-👽 Jum is puzl.ing
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="puzlstyle.css" />
+    <!-- TODO: dark mode favicon -->
+    <link rel="icon" href="logo.svg" type="image/svg+xml" />
+    <title>puzl.ing / games</title>
+</head>
+
+<body>
+    <svg id="bg-noise" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <!--
+        Single noise source. The rect's fill is a horizontal alpha gradient
+        (SourceGraphic: alpha=1 on sides, alpha=0 in center).
+        The filter branches the one noise into a color pass and a gray pass,
+        masks each with SourceGraphic / inverted-SourceGraphic, then composites.
+    -->
+            <linearGradient id="sideAlphaGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="white" stop-opacity="1" />
+                <stop offset="10%" stop-color="white" stop-opacity="0" />
+                <stop offset="90%" stop-color="white" stop-opacity="0" />
+                <stop offset="100%" stop-color="white" stop-opacity="1" />
+            </linearGradient>
+            <filter id="noiseFilter" color-interpolation-filters="sRGB">
+                <!-- Single noise source -->
+                <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="1" result="noise" />
+                <!-- Boosted-saturation + darkened color branch -->
+                <!-- SVG spec sat=10 matrix, each row * 0.7 to darken -->
+                <feColorMatrix type="matrix" in="noise" result="colorNoise" values="
+                5.658  -4.504  -0.454  0  0
+            -1.342   2.496  -0.454  0  0
+            -1.342  -4.504   6.546  0  0
+                0       0       0      1  0" />
+                <!-- Desaturated + lightened gray branch: sat=0 * 0.6 gain + 0.2 bias -->
+                <feColorMatrix type="matrix" in="noise" result="grayNoise" values="
+                0.128  0.429  0.043  0  0.3
+                0.128  0.429  0.043  0  0.3
+                0.128  0.429  0.043  0  0.3
+                0      0      0      1  0" />
+                <!-- Invert the alpha of SourceGraphic (side-alpha gradient) for the gray mask -->
+                <feComponentTransfer in="SourceGraphic" result="invertedGrad">
+                    <feFuncA type="linear" slope="-1" intercept="1" />
+                </feComponentTransfer>
+                <!-- Mask color to sides, gray to center -->
+                <feComposite operator="in" in="colorNoise" in2="SourceGraphic" result="maskedColor" />
+                <feComposite operator="in" in="grayNoise" in2="invertedGrad" result="maskedGray" />
+                <!-- Composite: colored sides over gray center -->
+                <feComposite operator="over" in="maskedColor" in2="maskedGray" />
+            </filter>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#sideAlphaGradient)" filter="url(#noiseFilter)" />
+    </svg>
+    <div id="layout">
+        <div class="decorative-block" id="deco1"></div>
+        <div class="decorative-block" id="deco2"></div>
+        <div class="decorative-block" id="deco3"></div>
+        <div class="decorative-block" id="deco4"></div>
+        <a href="/">
+            <div id="logo">
+                <div></div>
+            </div>
+        </a>
+        <header>
+            <nav>
+                <ol>
+                    <li><a href="/">puzl.ing</a></li>
+                    <span>/</span>
+                    <li><a href="lists">lists</a></li>
+                    <span>/</span>
+                    <li><a href="lists/epiphany">epiphany</a></li>
+                </ol>
+            </nav>
+            <div id="jum-container">
+                <img id="jum" src="jum.svg" />
+            </div>
+        </header>
+        <main>
+            <article class="with-margin">
+                <h1>Epiphany Games</h1>
+                <p>
+                    Some games derive their fun from moments of discovery and understanding.
+                    Puzzle games
+                    But epiphany games are bigger
+                </p>
+                <h2>EMUUROM</h2>
+                <img src="emuurom.jpg" />
+                <div class="sideblock">
+                    <p>Scan all objects and find all secret paths. Not so much about solving puzzles.</p>
+                    <dl class="stats-sideblock">
+                        <dt>Epiphany Score</dt>
+                        <dd>5</dd>
+                        <dt>Overall Score</dt>
+                        <dd>6</dd>
+                    </dl>
+                </div>
+                <p>
+                    EMUUROM asks the player to explore every detail of the world to find all its secrets. The problem
+                    is, the level design and game mechanics are not fun by themselves.
+                </p>
+                <p>
+                    EMUUROM is a time-consuming scavenger hunt. There are a couple epiphany moments. One in particular
+                    was really cool.
+                </p>
+                <p>
+                    Like many games of its type, EMUUROM features a secret writing system. However, the language encoded
+                    is not English, but rather a particular dialect of Finnish, spelled phonetically. Google translate
+                    struggles, even when the messages are perfectly deciphered. The messages are not used for that many
+                    secrets, anyway, so the whole secret language thing was a disappointment.
+                </p>
+            </article>
+        </main>
+        <footer>
+            We Jum in peace
+        </footer>
+    </div>
+</body>
+
+<script src="puzleffects.js"></script>
+
+</html>
