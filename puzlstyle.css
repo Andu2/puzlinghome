@@ -1,11 +1,16 @@
 :root {
-    --color-link: #e10586;
-    --color-header-fade: #ffd4ed;
-    --color-border: #150044;
+    --color-negative-strong: #ff19b0;
+    --color-negative: hsl(315, 100%, 85%);
+    --color-positive-weak: #d6edff;
+    --color-positive: #98c4ff;
+    --color-positive-strong: #3e8bff;
+    --color-border: #1e2842;
     --color-shadow: #000000;
-    --color-visited: #0404c0;
-    --color-link-hover: #09ced4;
-    font-size: 16px;
+    --color-text: #000000;
+    --color-neutral-weak: #e0e0e0;
+    --color-neutral: #c0c0c0;
+    --color-neutral-strong: #909090;
+    font-size: 18px;
 }
 
 * {
@@ -18,23 +23,48 @@
 }
 
 a {
-    color: var(--color-link);
-    text-decoration: inherit;
+    color: var(--color-negative-strong);
     cursor: pointer;
     font-weight: bold;
 }
 
 a:visited {
-    color: var(--color-visited);
+    color: var(--color-neutral-strong);
 }
 
 a:hover {
-    color: var(--color-link-hover);
+    color: var(--color-positive-strong);
 }
 
 img {
     max-width: 100%;
     height: auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-variant: small-caps;
+    color: var(--color-border);
+}
+
+h1 {
+    position: relative;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, var(--color-positive) 0, var(--color-negative) 100%);
+    margin-left: -50px;
+    margin-right: -50px;
+    margin-top: -50px;
+    padding: 50px 50px 0 50px;
+}
+
+h2 {
+    position: relative;
+    font-size: 2rem;
+    background: linear-gradient(to right, var(--color-positive) 0, white 100%);
+    padding: 0 0 0 20px;
+}
+
+h3 {
+    font-size: 1.5em;
 }
 
 /* html {
@@ -61,7 +91,7 @@ body {
 #layout {
     position: relative;
     margin: 0 auto;
-    width: 1200px;
+    width: 1240px;
     min-height: 100vh;
     background: linear-gradient(to right, transparent 20px, var(--color-shadow) 80px, var(--color-shadow) calc(100% - 80px), transparent calc(100% - 20px));
     display: flex;
@@ -75,21 +105,28 @@ header {
     flex-direction: row;
     align-items: center;
     height: 100px;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 50px;
     margin: 20px 50px 20px 50px;
-    background: linear-gradient(to right, white 0, white 80%, var(--color-header-fade) 100%);
+    background: linear-gradient(to right, white 0, white 80%, var(--color-negative) 100%);
     border-radius: 0 0 50px 0;
     font-size: 2rem;
+    box-shadow: 4px 0 8px -4px;
 }
 
-nav ol > li {
+header a {
+    text-decoration-thickness: 2px;
+}
+
+header ol > li {
     display: inline-block;
 }
 
 main {
-    font-family: serif;
+    color: var(--color-text);
+    font-family: system-ui, sans-serif;
+    font-optical-sizing: auto;
     font-size: 1rem;
-    line-height: 1.6;
+    line-height: 1.5;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -99,6 +136,8 @@ main {
     margin-bottom: 20px;
     background: linear-gradient(to right, white 0, white 50%, white 100%);
     border-radius: 0 30px 30px 30px;
+    box-shadow: -4px 0 8px -4px;
+    overflow: hidden;
 }
 
 /* TODO: use data url, built from SSG so it's still editable */
@@ -156,14 +195,14 @@ main {
     width: 60px;
     height: 60px;
     background-image: none;
-    background-color: var(--color-header-fade);
-    border-left: 5px solid var(--color-link);
-    /* border-radius: 0 10px 10px 0; */
+    background-color: var(--color-negative);
+    border: 2px solid var(--color-negative-strong);
+    /* box-shadow: 0 0 8px; */
 }
 
 /* Is mask not usable because it's too new? */
 #logo div {
-    background-color: var(--color-link);
+    background-color: var(--color-negative-strong);
     mask-image: url("logo.svg");
     mask-size: contain;
     mask-repeat: no-repeat;
@@ -178,23 +217,26 @@ article {
     min-height: 100px;
 }
 
-article h1, h2, h3, h4, h5, h6 {
-    font-variant: small-caps;
-    color: var(--color-border);
+article ol, article ul {
+    margin-left: 20px;
 }
 
 article > * + * {
-    margin-top: 1rem;
+    margin-top: 1.5em;
 }
 
 article > img {
-    border: 2px solid var(--color-border);
-    box-shadow: 0 2px 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+article .spoiler {
+    cursor: pointer;
+    background-color: var(--color-text);
 }
 
 article.with-margin {
     display: grid;
-    grid-template-columns: 2.5fr 1fr;
+    grid-template-columns: 1fr 270px;
     align-content: start;
     gap: 0 25px;
 }
@@ -203,15 +245,60 @@ article.with-margin > * {
     grid-column: 1;
 }
 
+article.with-margin > h1, article.with-margin > h2 {
+    grid-column: span 2;
+}
+
+article.with-margin > .metadata {
+    grid-row: 2;
+    grid-column: 2;
+    text-align: right;
+    /* padding: 10px; */
+    /* background-color: var(--color-neutral-weak); */
+}
+
 article.with-margin > aside {
     grid-column: 2;
     font-size: 0.8em;
 }
 
 article.with-margin > .sideblock {
+    font-size: 0.85rem;
     grid-column: 2;
-    background-color: var(--color-header-fade);
+    background-color: var(--color-positive-weak);
     padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+ul.proconlist {
+    list-style-type: none;
+}
+
+li.positive {
+    color: var(--color-positive-strong);
+}
+
+li.positive::before {
+    content: "+";
+    padding-right: 10px;
+}
+
+li.subjective {
+    color: var(--color-neutral-strong);
+}
+
+li.subjective::before {
+    content: "?";
+    padding-right: 10px;
+}
+
+li.negative {
+    color: var(--color-negative-strong);
+}
+
+li.negative::before {
+    content: "-";
+    padding-right: 10px;
 }
 
 .sideblock > * + * {
@@ -222,6 +309,14 @@ dl.stats-sideblock {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 4px 16px;
+}
+
+dl.stats-sideblock dt {
+    font-weight: bold;
+}
+
+dl.stats-sideblock dd {
+    font-family: monospace;
 }
 
 footer {
@@ -236,7 +331,8 @@ footer {
     /* This gets reduced to the height of the element; 
     I tried using another div to make it actually 50px, but it looked worse */
     border-radius: 50px 50px 0 0;
-    background: linear-gradient(to right, white 0, var(--color-header-fade) 80%, var(--color-header-fade) 100%);
+    background: linear-gradient(to right, var(--color-neutral) 0, var(--color-neutral) 80%, var(--color-negative) 100%);
+    box-shadow: 4px 0 8px -4px;
 }
 
 #jum-container {
@@ -250,6 +346,7 @@ footer {
     background-color: white;
     border-radius: 50% 0 50% 50%;
     cursor: pointer;
+    /* box-shadow: 0 0 8px var(--color-negative-strong); */
 }
 
 #jum {

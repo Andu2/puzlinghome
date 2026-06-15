@@ -1,6 +1,8 @@
 // const NOISE_BG_COUNT = 2;
 // let noiseIndex = 0;
 
+// This ended up being way too CPU-intensive, although it looks really cool
+
 // setInterval(function() {
 //     noiseIndex++;
 //     if (noiseIndex >= NOISE_BG_COUNT) {
@@ -9,6 +11,12 @@
 //     const noiseUrl = "url(\"noise" + (noiseIndex + 1) + ".png\")";
 //     document.documentElement.style.backgroundImage = noiseUrl;
 // }, 100)
+
+document.querySelectorAll(".spoiler").forEach(function(element) {
+    element.addEventListener("click", function(e) {
+        e.target.style.backgroundColor = "var(--color-neutral-weak)";
+    });
+});
 
 function newJum() {
     return {
