@@ -1,15 +1,16 @@
 // const NOISE_BG_COUNT = 2;
 // let noiseIndex = 0;
 
-// This ended up being way too CPU-intensive, although it looks really cool
+// //This ended up being way too CPU-intensive, although it looks really cool
 
 // setInterval(function() {
 //     noiseIndex++;
 //     if (noiseIndex >= NOISE_BG_COUNT) {
 //         noiseIndex = 0;
 //     }
-//     const noiseUrl = "url(\"noise" + (noiseIndex + 1) + ".png\")";
-//     document.documentElement.style.backgroundImage = noiseUrl;
+//     const noiseUrl = "url(\"assets/noise" + (noiseIndex + 1) + ".png\") repeat";
+//     document.getElementById("bg1").style.background = noiseUrl;
+//     document.getElementById("bg2").style.background = noiseUrl;
 // }, 100)
 
 document.querySelectorAll(".spoiler").forEach(function(element) {

@@ -1,0 +1,65 @@
+---
+{
+    "title": "Untitled",
+    "withMargin": false
+}
+---
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="/assets/puzlstyle.css" />
+    <!-- TODO: dark mode favicon -->
+    <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <div id="bg1"></div>
+    <div id="bg2"></div>
+    <div id="layout">
+        <div class="decorative-block" id="deco1"></div>
+        <div class="decorative-block" id="deco2"></div>
+        <div class="decorative-block" id="deco3"></div>
+        <div class="decorative-block" id="deco4"></div>
+        <div class="decorative-block" id="deco5"></div>
+        <div class="decorative-block" id="deco6"></div>
+        <a href="/">
+            <div id="logo"></div>
+        </a>
+        <header>
+            <nav>
+                {% assign crumbs = page.url | split: "/" %}
+                {% assign crumbpath = "" %}
+                <ol>
+                    <li><a href="/">puzl.ing</a></li>
+                    {% for crumb in crumbs %}
+                        {% if crumb != "" %}
+                            {% assign crumbpath = crumbpath | append: "/" | append: crumb %}
+                            <li><a href="{{ crumbpath }}/">{{ crumb }}</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </nav>
+            <div id="jum-container">
+                <img id="jum" src="/assets/jum.svg" />
+            </div>
+        </header>
+        <main>
+            <article{% if withMargin != false %} class="with-margin"{% endif %}>
+                <h1>{{ title }}</h1>
+                <div class="metadata">
+                    {{ date }}
+                </div>
+                {{content}}
+            </article>
+        </main>
+        <footer>
+            We Jum in peace
+        </footer>
+    </div>
+</body>
+
+<script src="/assets/puzleffects.js"></script>
+
+</html>

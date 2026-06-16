@@ -53,7 +53,8 @@ h1 {
     margin-left: -50px;
     margin-right: -50px;
     margin-top: -50px;
-    padding: 50px 50px 0 50px;
+    padding: 50px 50px 10px 50px;
+    line-height: 1;
 }
 
 h2 {
@@ -75,16 +76,31 @@ h3 {
 
 body {
     margin: 0;
-    /* background: linear-gradient(to right, gray 0, transparent 100px, transparent calc(100%-100px), gray 0); */
+    position: relative;
+    background-color: var(--color-neutral-weak);
 }
 
-#bg-noise {
+#bg1 {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -5;
+    inset: 0;
+    background: url(noise1.png) repeat;
+    filter: grayscale(1) contrast(0.35) brightness(1.45);
+    z-index: -1;
+    pointer-events: none;
+}
+
+#bg2 {
+    position: fixed;
+    inset: 0;
+    background: url(noise1.png) repeat;
+    mask-image: linear-gradient(
+        to right,
+        black 0%,
+        transparent 150px,
+        transparent calc(100% - 150px),
+        black 100%
+    );
+    z-index: -1;
     pointer-events: none;
 }
 
@@ -92,6 +108,7 @@ body {
     position: relative;
     margin: 0 auto;
     width: 1240px;
+    min-width: 320px;
     min-height: 100vh;
     background: linear-gradient(to right, transparent 20px, var(--color-shadow) 80px, var(--color-shadow) calc(100% - 80px), transparent calc(100% - 20px));
     display: flex;
@@ -109,7 +126,7 @@ header {
     margin: 20px 50px 20px 50px;
     background: linear-gradient(to right, white 0, white 80%, var(--color-negative) 100%);
     border-radius: 0 0 50px 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     box-shadow: 4px 0 8px -4px;
 }
 
@@ -119,6 +136,10 @@ header a {
 
 header ol > li {
     display: inline-block;
+}
+
+header ol > li + li::before {
+    content: "/ "
 }
 
 main {
@@ -138,13 +159,14 @@ main {
     border-radius: 0 30px 30px 30px;
     box-shadow: -4px 0 8px -4px;
     overflow: hidden;
+    padding: 50px;
 }
 
 /* TODO: use data url, built from SSG so it's still editable */
 .decorative-block {
     position: absolute;
     background-color: var(--color-border);
-    background-image: url("border-pattern.svg");
+    background-image: url(border-pattern.svg);
     background-size: 32px 64px;
     background-attachment: fixed;
 }
@@ -184,6 +206,24 @@ main {
     border-radius: 0 50px 0 0;
 }
 
+/* Mobile layout: border between header and body */
+#deco5 {
+    top:100px;
+    left: 0;
+    right: 0;
+    height:20px;
+    display: none;
+}
+
+/* Mobile layout: border between footer and body */
+#deco6 {
+    bottom:30px;
+    left: 0;
+    right: 0;
+    height:20px;
+    display: none;
+}
+
 #logo {
     z-index: 1;
     position: absolute;
@@ -200,21 +240,16 @@ main {
     /* box-shadow: 0 0 8px; */
 }
 
-/* Is mask not usable because it's too new? */
-#logo div {
+/* TODO: Is mask not usable because it's too new? */
+#logo::before {
+    content: "";
     background-color: var(--color-negative-strong);
-    mask-image: url("logo.svg");
+    mask-image: url(logo.svg);
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: center;
     width: 80%;
     height: 80%;
-}
-
-article {
-    flex-grow: 1;
-    padding: 50px;
-    min-height: 100px;
 }
 
 article ol, article ul {
@@ -320,22 +355,25 @@ dl.stats-sideblock dd {
 }
 
 footer {
+    font-family: sans-serif;
     font-size: 10pt;
-    display: flex;
     z-index: 1;
     padding: 0 0 0 50px;
+    display: flex;
     align-items: center;
+    justify-content: center;
     height: 30px;
     margin: 0 50px;
 
     /* This gets reduced to the height of the element; 
     I tried using another div to make it actually 50px, but it looked worse */
     border-radius: 50px 50px 0 0;
-    background: linear-gradient(to right, var(--color-neutral) 0, var(--color-neutral) 80%, var(--color-negative) 100%);
+    background: linear-gradient(to right, var(--color-positive) 0, var(--color-neutral) 20%, var(--color-neutral) 80%, var(--color-negative) 100%);
     box-shadow: 4px 0 8px -4px;
 }
 
 #jum-container {
+    flex-shrink: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -356,4 +394,85 @@ footer {
 
 #jum:active {
     transform: scale(0.875);
+}
+
+@media (max-width: 1240px) {
+    #bg1, #bg2 {
+        display: none;
+    }
+
+    #deco1, #deco2, #deco3, #deco4 {
+        display: none;
+    }
+
+    #deco5, #deco6 {
+        display: block;
+    }
+
+    #layout {
+        width: 100%;
+        background: none;
+        background-color: var(--color-neutral-weak);
+    }
+
+    header {
+        margin: 0;
+        padding: 0 0 0 80px;
+        border-radius: 0;
+        box-shadow: none;
+        font-size: 1rem;
+        background: linear-gradient(to right, white 0, white 60%, var(--color-negative) 100%);
+    }
+
+    header nav li {
+        display: block;
+    }
+
+    main {
+        margin: 20px 0;
+        padding: 20px 20px;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    footer {
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    #logo {
+        top: 20px;
+        left: 10px;
+    }
+
+    h1 {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 80px 20px 10px 20px;
+        font-size: 2rem;
+    }
+
+    h2 {
+        padding-left: 10px;
+        font-size: 1.5rem;
+    }
+
+    article.with-margin {
+        grid-template-columns: 1fr;
+    }
+
+    article.with-margin > h1,
+    article.with-margin > h2,
+    article.with-margin > .metadata,
+    article.with-margin > aside,
+    article.with-margin > .sideblock {
+        grid-column: 1;
+    }
+
+    article.with-margin > .metadata {
+        grid-row: auto;
+        text-align: left;
+    }
 }

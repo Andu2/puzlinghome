@@ -1,5 +1,7 @@
 SHELL := /bin/bash
-.PHONY: deploy
 
+.PHONY: deploy
 deploy:
-	scp index.html andu@shh.puzl.ing:/srv/puzlinghome/index.html
+	rm -rf _site
+	npm run build
+	scp -r _site/* andu@shh.puzl.ing:/srv/puzlinghome/
