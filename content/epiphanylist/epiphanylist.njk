@@ -1,0 +1,112 @@
+---
+{
+    "layout": "master.njk",
+    "title": "Epiphany Games",
+    "withMargin": true,
+    "date": "2026-06-18",
+    "eleventyImport": {
+        "collections": ["epiphanygame"]
+    }
+}
+---
+{% from "sidenote.njk" import sidenote %}
+<p>
+    Sometimes I'll come across a game that's hard to find information for, because
+    the reviews helpfully say "don't read anything about this game before playing it" or
+    <span class="spoiler">they're just big walls of spoiler tags</span>.
+    Faced with a such a lack of key information, I immediately buy and download the game.
+</p>
+<p>
+    Discussions that look like the Epstein files are a sign that the game is what I call an <em>epiphany-driven game</em>
+    {%- call sidenote("sn-metroidbrainia") %}
+    I have also seen the term "<a href="https://www.reddit.com/r/metroidbrainia/">Metroidbrainia</a>",
+    which describes a Metroidvania where areas are unlocked through player knowledge rather than in-game abilities, 
+    but I find that this term excludes too many games that evoke the same core feelings as Outer Wilds.
+    For example, I find that Subnautica feels similar to Outer Wilds, 
+    even though it has little to no knowledge gating at all.
+    {% endcall -%}.
+    These games reward curiosity with paradigm-shifting moments of understanding.
+    It's like being able to go back in time to re-discover quantum physics.
+    You can't read about these games until you've played them, because learning the game is the whole point.
+    In my opinion, these are some of the best, most satisfying games in existence,
+    but they can only be played once! For that reason, I am always seeking more.
+</p>
+<p>
+    Like many others, my Epiphany Game addiction started with Outer Wilds.
+    This game is simultaneously genre-defining and unique.
+    A search for "games like Outer Wilds" finds dozens of
+    <a href="https://www.reddit.com/r/outerwilds/wiki/index/gamerecs/">posts from other players feeling
+        a bit empty</a>
+    after completing the game or its DLC. There really is nothing quite like Outer Wilds, but there are
+    games that are fun for some of the same reasons. The core of an Epiphany Game is: 
+    <strong>
+        A coherent universe with hidden truths that must be discovered through self-guided exploration.
+    </strong>
+    For strong epiphanies, the worldbuilding must be solid, so that the revelations make sense,
+    and the game must allow the player to choose their own lines of inquiry,
+    so that the accomplishment feels earned.
+</p>
+<p>
+    Here is a spoiler-free tier list of Epiphany Games I've completed.
+    The tier criteria are how much I think the games fit the category, and how much I liked the game, combined and weighted on vibes.
+</p>
+
+<h2>S Tier</h2>
+<div class="fullrow"><div class="tierlist">
+{% for game in collections.epiphanyS %}
+{% include "epiphanygamesummary.njk" %}
+{% endfor %}
+</div></div>
+
+<h2>A Tier</h2>
+<div class="fullrow"><div class="tierlist">
+{% for game in collections.epiphanyA %}
+{% include "epiphanygamesummary.njk" %}
+{% endfor %}
+</div></div>
+
+<h2>B Tier</h2>
+<div class="fullrow"><div class="tierlist">
+{% for game in collections.epiphanyB %}
+{% include "epiphanygamesummary.njk" %}
+{% endfor %}
+</div></div>
+
+<h2>C Tier</h2>
+<div class="fullrow"><div class="tierlist">
+{% for game in collections.epiphanyC %}
+{% include "epiphanygamesummary.njk" %}
+{% endfor %}
+</div></div>
+
+<h2>Games I've Played That Don't Quite Fit</h2>
+<p>
+    <ul>
+        <li>
+            <a href="https://store.steampowered.com/app/736260/Baba_Is_You/">Baba is You</a>:
+            Is a fantastic puzzle game, and I was close to adding it to the list, 
+            but I do not quite consider it an Epiphany Game (despite certain late-game levels). 
+            A good puzzle game requires the player to understand the problem, so it may involve many localized per-level epiphanies.
+            But a good Epiphany Game involves a <em>whole world</em> to understand.
+            {%- call sidenote("sn-puzzle") %}
+            Some puzzle games are indeed also Epiphany Games. Check out
+            <a href="https://thinkygames.com/lists/thinky-essentials/">Thinky Essentials</a>
+            for a good list of puzzle games with a bias toward epiphanies.
+            {% endcall -%}
+        </li>
+        <li>
+            <a href="https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/">The Case of the Golden Idol</a>:
+            It's a good game, but I don't consider it an Epiphany Game because the case are mostly self-contained and don't reveal greater truths.
+            The twist at the end is extremely predictable.
+        <li>
+            <a href="https://playcebo.itch.io/12-word-searches">12 word searches</a>:
+            Actually fits the Epiphany Game definition quite well, but being a short pen-and-paper game,
+            it isn't the same scope as the games in the list. I really liked it, though!
+        </li>
+        <li>
+            <a href="https://letibus.bigcartel.com/product/lok">LOK</a>:
+            Another pen-and-paper game, this one is foremost a book of puzzles rather than an Epiphany Game.
+            While you must learn the rules yourself, the rules don't change your understanding of earlier puzzles.
+        </li>        
+    </ul>
+</p>

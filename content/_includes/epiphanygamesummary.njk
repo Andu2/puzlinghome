@@ -1,0 +1,23 @@
+<div class="tiercard">
+    <h3>
+        {% if game.url %}
+            <a href="{{ game.url }}">{{ game.data.title }}</a>
+        {% else %}
+            {{ game.data.title }}
+        {% endif %}
+    </h3>
+    <dl class="reviewsummary-stats">
+        <dt>Overall Score</dt>
+        <dd>{{ game.data.score }}/10</dd>
+        <dt>Epiphany Strength</dt>
+        <dd>{{ game.data.epiphanyScore }}/10</dd>
+    </dl>
+    <p>
+        {{ game.data.tierJustification | safe }}
+    </p>
+    <p>
+        {% for link in game.data.gameLinks %}
+        <a href="{{ link.url }}">{{ link.text }}</a>
+        {% endfor %}
+    </p>
+</div>

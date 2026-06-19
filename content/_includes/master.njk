@@ -1,9 +1,3 @@
----
-{
-    "title": "Untitled",
-    "withMargin": false
-}
----
 <!DOCTYPE html>
 <html>
 
@@ -29,13 +23,13 @@
         </a>
         <header>
             <nav>
-                {% assign crumbs = page.url | split: "/" %}
-                {% assign crumbpath = "" %}
+                {% set crumbs = (page.url or "/").split("/") %}
+                {% set crumbpath = "" %}
                 <ol>
                     <li><a href="/">puzl.ing</a></li>
                     {% for crumb in crumbs %}
-                        {% if crumb != "" %}
-                            {% assign crumbpath = crumbpath | append: "/" | append: crumb %}
+                        {% if crumb %}
+                            {% set crumbpath = crumbpath ~ "/" ~ crumb %}
                             <li><a href="{{ crumbpath }}/">{{ crumb }}</a></li>
                         {% endif %}
                     {% endfor %}
@@ -48,14 +42,18 @@
         <main>
             <article{% if withMargin != false %} class="with-margin"{% endif %}>
                 <h1>{{ title }}</h1>
+                {% block articleHead %}
+                {% endblock %}
+                {% if date %}
                 <div class="metadata">
-                    {{ date }}
+                    <strong>Posted:</strong> {{ date }}
                 </div>
-                {{content}}
+                {% endif %}
+                {{ content | safe }}
             </article>
         </main>
         <footer>
-            We Jum in peace
+            !!!
         </footer>
     </div>
 </body>

@@ -1,0 +1,38 @@
+---
+{
+    "withMargin": true,
+    "date": "2026-06-18"
+}
+---
+{% extends "master.njk" %}
+{% block articleHead %}
+<div class="fullrow flexrow">
+    <img src="/epiphanylist/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
+    <div class="reviewsummary">
+        <p>
+            {{ summary }}
+        </p>
+        <dl class="reviewsummary-stats">
+            <dt>Overall Score</dt>
+            <dd>{{ score }}/10</dd>
+            <dt>Epiphany Strength</dt>
+            <dd>{{ epiphanyScore }}/10</dd>
+            <dt>Length</dt>
+            <dd>{{ length }}</dd>
+        </dl>
+        <p>
+            {% for link in gameLinks %}
+            <a href="{{ link.url }}">{{ link.text }}</a>
+            {% endfor %}
+        </p>
+    </div>
+</div>
+{% endblock %}
+{{ content | safe }}
+{% if proConList %}
+<ul class="proconlist">
+    {% for item in proConList %}
+    <li class="{{ item.class }}">{{ item.value }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

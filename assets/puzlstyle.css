@@ -62,6 +62,7 @@ h2 {
     font-size: 2rem;
     background: linear-gradient(to right, var(--color-positive) 0, white 100%);
     padding: 0 0 0 20px;
+    margin-left: -20px;
 }
 
 h3 {
@@ -252,6 +253,12 @@ main {
     height: 80%;
 }
 
+.flexrow {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
 article ol, article ul {
     margin-left: 20px;
 }
@@ -260,8 +267,9 @@ article > * + * {
     margin-top: 1.5em;
 }
 
-article > img {
+article img {
     box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+    width: 100%;
 }
 
 article .spoiler {
@@ -270,39 +278,96 @@ article .spoiler {
 }
 
 article.with-margin {
-    display: grid;
-    grid-template-columns: 1fr 270px;
-    align-content: start;
-    gap: 0 25px;
+    margin-right: 300px;
+    /* set counter to scope of article */
+    counter-reset: snCounter;
 }
 
-article.with-margin > * {
-    grid-column: 1;
+.sn-label {
+    counter-increment: snCounter;
+    display: inline;
+}
+
+.sn-label::after {
+    position: relative;
+    font-size: 0.85rem;
+    top: -0.5em;
+    font-weight: bold;
+    content: counter(snCounter);
+}
+
+.sn-toggle {
+    display: none;
 }
 
 article.with-margin > h1, article.with-margin > h2 {
-    grid-column: span 2;
+    margin-right: -350px;
+    clear:both;
 }
 
 article.with-margin > .metadata {
-    grid-row: 2;
-    grid-column: 2;
+    width: 270px;
+    margin-right: -300px;
     text-align: right;
+    float: right;
+    clear: right;
     /* padding: 10px; */
     /* background-color: var(--color-neutral-weak); */
 }
 
-article.with-margin > aside {
-    grid-column: 2;
-    font-size: 0.8em;
+.marginnote {
+    width: 270px;
+    margin-right: -300px;
+    font-size: 0.85em;
+    float: right;
+    clear: right;
+
+    /* Move the margin to the bottom so the note aligns better with the text
+    and elements that clear float have proper spacing */
+    margin-top: 0;
+    margin-bottom: 1.5em;
 }
 
-article.with-margin > .sideblock {
+.marginnote::before {
+    font-weight: bold;
+    content: counter(snCounter);
+}
+
+article.with-margin > .fullrow {
+    margin-right: -300px;
+    clear:both;
+}
+
+.tierlist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.tiercard {
+    background-color: var(--color-positive-weak);
+    flex-basis: 400px;
     font-size: 0.85rem;
-    grid-column: 2;
+    flex-grow: 1;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+.tiercard > * + * {
+    margin-top: 1rem;
+}
+
+.reviewsummary {
+    flex-shrink: 0;
+    font-size: 0.85rem;
+    width: 270px;
     background-color: var(--color-positive-weak);
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.7);
+}
+
+.tierlist a:visited, .reviewsummary a:visited {
+    color: var(--color-border);
 }
 
 ul.proconlist {
@@ -336,21 +401,21 @@ li.negative::before {
     padding-right: 10px;
 }
 
-.sideblock > * + * {
+.reviewsummary > * + * {
     margin-top: 1rem;
 }
 
-dl.stats-sideblock {
+dl.reviewsummary-stats {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 4px 16px;
 }
 
-dl.stats-sideblock dt {
+dl.reviewsummary-stats dt {
     font-weight: bold;
 }
 
-dl.stats-sideblock dd {
+dl.reviewsummary-stats dd {
     font-family: monospace;
 }
 
@@ -417,15 +482,10 @@ footer {
 
     header {
         margin: 0;
-        padding: 0 0 0 80px;
+        padding: 0 0 0 100px;
         border-radius: 0;
         box-shadow: none;
-        font-size: 1rem;
         background: linear-gradient(to right, white 0, white 60%, var(--color-negative) 100%);
-    }
-
-    header nav li {
-        display: block;
     }
 
     main {
@@ -451,28 +511,75 @@ footer {
         margin-left: -20px;
         margin-right: -20px;
         padding: 80px 20px 10px 20px;
+    }
+}
+
+@media (max-width: 840px) {
+    header {
+        font-size: 1rem;
+        padding: 0 0 0 80px;
+    }
+
+    header nav li {
+        display: block;
+    }
+
+    h1 {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding: 80px 20px 10px 20px;
         font-size: 2rem;
     }
 
     h2 {
-        padding-left: 10px;
+        margin-left: -20px;
+        padding-left: 20px;
         font-size: 1.5rem;
     }
 
+    h3 {
+        font-size: 1.25rem;
+    }
+
     article.with-margin {
-        grid-template-columns: 1fr;
+        margin-right: 0;
     }
 
-    article.with-margin > h1,
-    article.with-margin > h2,
-    article.with-margin > .metadata,
-    article.with-margin > aside,
-    article.with-margin > .sideblock {
-        grid-column: 1;
-    }
-
-    article.with-margin > .metadata {
-        grid-row: auto;
+    .marginnote, article.with-margin > .metadata {
         text-align: left;
+        float: none;
+        margin-right: 0;
+        width: auto;
+    }
+
+    article.with-margin > .fullrow {
+        margin-right: 0;
+    }
+
+    .flexrow {
+        flex-direction: column;
+    }
+
+    .reviewsummary {
+        width: 100%;
+    }
+
+    .sn-label {
+        cursor: pointer;
+    }
+
+    .marginnote {
+        display: none;
+    }
+
+    .sn-toggle:checked + .marginnote,
+    .sn-toggle:checked + .marginnote {
+        display: block;
+        float: left;
+        left: 0.5rem;
+        clear: both;
+        width: 95%;
+        margin: 1rem 2.5%;
+        position: relative;
     }
 }

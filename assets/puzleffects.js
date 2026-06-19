@@ -19,18 +19,19 @@ document.querySelectorAll(".spoiler").forEach(function(element) {
     });
 });
 
-function newJum() {
-    return {
-        element: undefined,
-        jumX: 0,
-        jumY: 0,
-        jumRot: 0,
-        jumSpeed: 0,
-        jumDir: 0,
-        jumRotSpeed: 0,
-        jumPrevTime: undefined,
-    }
-}
+// TODO: remove globals
+// function newJum() {
+//     return {
+//         element: undefined,
+//         jumX: 0,
+//         jumY: 0,
+//         jumRot: 0,
+//         jumSpeed: 0,
+//         jumDir: 0,
+//         jumRotSpeed: 0,
+//         jumPrevTime: undefined,
+//     }
+// }
 
 let jum = undefined;
 let jumX = 0;
@@ -87,6 +88,7 @@ const VOICE_ROTATION = [
 ];
 let voiceIndex = 0;
 
+// TODO:
 // Hold to charge
 // Change volume with hold
 // loading circle while loading audio

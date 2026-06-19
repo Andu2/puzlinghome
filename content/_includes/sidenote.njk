@@ -1,0 +1,5 @@
+{% macro sidenote(id) -%}
+<label for="{{ id }}" class="sn-label"></label><input type="checkbox" id="{{ id }}" class="sn-toggle" /><span class="marginnote">
+    {{ caller() }}
+</span>
+{%- endmacro -%}
