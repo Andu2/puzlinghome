@@ -109,7 +109,7 @@ document.getElementById("jum").addEventListener("click", function (e) {
     jumPrevTime = undefined;
     requestAnimationFrame(animateJum);
 
-    const drinkRecommendation = new Audio("assets/sound/" + VOICE_ROTATION[voiceIndex]);
+    const drinkRecommendation = new Audio("/assets/sound/" + VOICE_ROTATION[voiceIndex]);
     drinkRecommendation.play();
     voiceIndex++;
     if (voiceIndex >= VOICE_ROTATION.length) {

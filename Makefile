@@ -4,4 +4,4 @@ SHELL := /bin/bash
 deploy:
 	rm -rf _site
 	npm run build
-	scp -r _site/* andu@shh.puzl.ing:/srv/puzlinghome/
+	rsync -av _site/ andu@shh.puzl.ing:/srv/puzlinghome/

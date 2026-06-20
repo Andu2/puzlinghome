@@ -259,6 +259,11 @@ main {
     gap: 30px;
 }
 
+.flexrow > * {
+    /* This prevents wide images from overflowing the flexbox in Chrome */
+    min-width: 0;
+}
+
 article ol, article ul {
     margin-left: 20px;
 }
