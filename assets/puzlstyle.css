@@ -13,6 +13,12 @@
     font-size: 18px;
 }
 
+@font-face {
+    font-family: "Header";
+    src: url(besley-subset.woff2) format("woff2");
+    unicode-range: U+0020-007F;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -36,6 +42,10 @@ a:hover {
     color: var(--color-positive-strong);
 }
 
+a.external::after {
+    content: " »";
+}
+
 img {
     max-width: 100%;
     height: auto;
@@ -43,6 +53,7 @@ img {
 
 h1, h2, h3, h4, h5, h6 {
     font-variant: small-caps;
+    font-family: "Header", serif;
     color: var(--color-border);
 }
 
@@ -108,7 +119,8 @@ body {
 #layout {
     position: relative;
     margin: 0 auto;
-    width: 1240px;
+    width: 100%;
+    max-width: 1240px;
     min-width: 320px;
     min-height: 100vh;
     background: linear-gradient(to right, transparent 20px, var(--color-shadow) 80px, var(--color-shadow) calc(100% - 80px), transparent calc(100% - 20px));
@@ -140,7 +152,7 @@ header ol > li {
 }
 
 header ol > li + li::before {
-    content: "/ "
+    content: "\00a0/ "
 }
 
 main {
@@ -344,26 +356,26 @@ article.with-margin > .fullrow {
 }
 
 .tierlist {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
 .tiercard {
     background-color: var(--color-positive-weak);
-    flex-basis: 400px;
     font-size: 0.85rem;
-    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.7);
 }
 
-.tiercard > * + * {
-    margin-top: 1rem;
-}
-
 .reviewsummary {
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     font-size: 0.85rem;
     width: 270px;
     background-color: var(--color-positive-weak);
@@ -406,14 +418,10 @@ li.negative::before {
     padding-right: 10px;
 }
 
-.reviewsummary > * + * {
-    margin-top: 1rem;
-}
-
 dl.reviewsummary-stats {
     display: grid;
     grid-template-columns: auto 1fr;
-    gap: 4px 16px;
+    gap: 0 12px;
 }
 
 dl.reviewsummary-stats dt {
@@ -424,8 +432,30 @@ dl.reviewsummary-stats dd {
     font-family: monospace;
 }
 
+.metadata dl {
+    display: inline-grid;
+    grid-template-columns: auto 1fr;
+    gap: 0 12px;
+}
+
+.metadata dl > dt {
+    font-weight: bold;
+}
+
+.metadata dl > dd {
+    font-family: monospace;
+}
+
+img.inline-icon {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    box-shadow: none;
+    vertical-align: middle;
+}
+
 footer {
-    font-family: sans-serif;
+    font-family: system-ui, sans-serif;
     font-size: 10pt;
     z-index: 1;
     padding: 0 0 0 50px;
@@ -466,7 +496,37 @@ footer {
     transform: scale(0.875);
 }
 
-@media (max-width: 1240px) {
+.tiercardhead {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tiercardhead > img {
+    width:120px;
+    height:120px;
+    flex-basis:120px;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+.genre {
+    font-style: italic;
+}
+
+.tiercardhead > div > * + * {
+    margin-top: 0.5rem;
+}
+
+.tiercardlinks {
+    margin-top: auto;
+}
+
+.mono {
+    font-family: monospace;
+}
+
+/* Compact mode starts when its inner content width matches desktop mode (1040px). */
+@media (max-width: 1080px) {
     #bg1, #bg2 {
         display: none;
     }

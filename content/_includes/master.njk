@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/assets/puzlstyle.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ "/assets/puzlstyle.css" | assetUrl }}" />
     <!-- TODO: dark mode favicon -->
     <link rel="icon" href="/assets/logo.svg" type="image/svg+xml" />
     <title>{{title}}</title>
@@ -23,33 +25,44 @@
         </a>
         <header>
             <nav>
-                {% set crumbs = (page.url or "/").split("/") %}
-                {% set crumbpath = "" %}
+                {%- set crumbs = (page.url or "/").split("/") -%}
+                {%- set crumbpath = "" -%}
                 <ol>
-                    <li><a href="/">puzl.ing</a></li>
-                    {% for crumb in crumbs %}
-                        {% if crumb %}
-                            {% set crumbpath = crumbpath ~ "/" ~ crumb %}
+                    <li><a href="/">puzl.ing</a></li> 
+                    {%- for crumb in crumbs -%}
+                        {%- if crumb -%}
+                            {%- set crumbpath = crumbpath ~ "/" ~ crumb -%}
                             <li><a href="{{ crumbpath }}/">{{ crumb }}</a></li>
-                        {% endif %}
-                    {% endfor %}
+                        {%- endif -%}
+                    {%- endfor -%}
                 </ol>
             </nav>
             <div id="jum-container">
-                <img id="jum" src="/assets/jum.svg" />
+                <img id="jum" alt="jum" src="/assets/jum.svg" />
             </div>
         </header>
         <main>
             <article{% if withMargin != false %} class="with-margin"{% endif %}>
                 <h1>{{ title }}</h1>
-                {% block articleHead %}
-                {% endblock %}
-                {% if date %}
+                {%- block articleHead %}
+                {%- endblock %}
+                {%- if createDate or updateDate %}
                 <div class="metadata">
-                    <strong>Posted:</strong> {{ date }}
+                    <dl>
+                        {%- if createDate %}
+                        <dt>Posted</dt>
+                        <dd>{{ createDate }}</dd>
+                        {% endif %}
+                        {%- if updateDate %}
+                        <dt>Updated</dt>
+                        <dd>{{ updateDate }}</dd>
+                        {% endif %}
+                    </dl>
                 </div>
-                {% endif %}
+                {%- endif %}
                 {{ content | safe }}
+                {%- block articleFooter %}
+                {%- endblock %}
             </article>
         </main>
         <footer>
@@ -58,6 +71,6 @@
     </div>
 </body>
 
-<script src="/assets/puzleffects.js"></script>
+<script src="{{ "/assets/puzleffects.js" | assetUrl }}"></script>
 
 </html>

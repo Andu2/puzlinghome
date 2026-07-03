@@ -1,23 +1,34 @@
+{% from "link.njk" import externalLink %}
 <div class="tiercard">
-    <h3>
-        {% if game.url %}
-            <a href="{{ game.url }}">{{ game.data.title }}</a>
-        {% else %}
-            {{ game.data.title }}
-        {% endif %}
-    </h3>
-    <dl class="reviewsummary-stats">
-        <dt>Overall Score</dt>
-        <dd>{{ game.data.score }}/10</dd>
-        <dt>Epiphany Strength</dt>
-        <dd>{{ game.data.epiphanyScore }}/10</dd>
-    </dl>
+    <div class="tiercardhead">
+        <div>
+            <h3>
+                {{ game.data.title }}
+            </h3>
+            <p class="genre">{{ game.data.genre }} ~ {{ game.data.length }}</p>
+            <dl class="reviewsummary-stats">
+                <dt>Overall Score</dt>
+                <dd>{{ game.data.score }}/10</dd>
+                <dt>Epiphany Strength</dt>
+                <dd>{{ game.data.epiphanyScore }}/10</dd>
+            </dl>
+        </div>
+        <img src="/epiphanylist/pageassets/{{ game.data.icon }}" alt="Icon for {{ game.data.title }}" />
+    </div>
     <p>
         {{ game.data.tierJustification | safe }}
     </p>
+    {%- if game.url %}
     <p>
-        {% for link in game.data.gameLinks %}
-        <a href="{{ link.url }}">{{ link.text }}</a>
-        {% endfor %}
+        <a href="{{ game.url }}">Full review!</a>
+    </p>
+    {%- endif %}
+    <p class="tiercardlinks">
+        {%- for link in game.data.gameLinks %}
+        {% if link.icon %}
+        <img class="inline-icon" src="/epiphanylist/pageassets/{{ link.icon }}" />
+        {% endif %}
+        {{ externalLink(link.url, link.text) }}
+        {%- endfor %}
     </p>
 </div>

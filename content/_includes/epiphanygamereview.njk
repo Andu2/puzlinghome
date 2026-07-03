@@ -4,11 +4,13 @@
     "date": "2026-06-18"
 }
 ---
+{% from "link.njk" import externalLink %}
 {% extends "master.njk" %}
 {% block articleHead %}
 <div class="fullrow flexrow">
     <img src="/epiphanylist/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
     <div class="reviewsummary">
+        <p class="genre">{{ genre }}<br />{{ length }}</p>
         <p>
             {{ summary }}
         </p>
@@ -17,22 +19,26 @@
             <dd>{{ score }}/10</dd>
             <dt>Epiphany Strength</dt>
             <dd>{{ epiphanyScore }}/10</dd>
-            <dt>Length</dt>
-            <dd>{{ length }}</dd>
         </dl>
-        <p>
-            {% for link in gameLinks %}
-            <a href="{{ link.url }}">{{ link.text }}</a>
-            {% endfor %}
+        {%- if gameLinks %}
+        <p class="tiercardlinks">
+            {%- for link in gameLinks %}
+            {% if link.icon %}
+            <img class="inline-icon" src="/epiphanylist/pageassets/{{ link.icon }}" />
+            {% endif %}
+            {{ externalLink(link.url, link.text) }}
+            {%- endfor %}
         </p>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
-{{ content | safe }}
-{% if proConList %}
+{% block articleFooter %}
+{%- if proConList %}
 <ul class="proconlist">
-    {% for item in proConList %}
+    {%- for item in proConList %}
     <li class="{{ item.class }}">{{ item.value }}</li>
-    {% endfor %}
+    {%- endfor %}
 </ul>
-{% endif %}
+{%- endif %}
+{% endblock %}
