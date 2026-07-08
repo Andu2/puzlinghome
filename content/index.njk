@@ -23,15 +23,15 @@
     <li>Games where you build a factory</li>
     <li>Tactical RPGs where you can give randomized soldiers silly names and watch them grow and be sad when they die</li>
 </ul>
-{# 
+
 <h2>Archive</h2>
-<ul>
-    {%- for item in datedPages %}
+<ol>
+    {%- for page in collections.sortedPages %}
     <li>
-        <span class="mono">{{ item.formattedDate }}</span> :: <a href="{{ item.url }}">{{ item.title }}</a>{%- if item.formattedUpdateDate %} :: updated <span class="mono">{{ item.formattedUpdateDate }}</span>{% endif %}
+        <span class="mono">{{ page.data.createDate }}</span> :: <a href="{{ page.url }}">{{ page.data.title }}</a>{%- if page.data.updateDate %} :: updated <span class="mono">{{ page.data.updateDate }}</span>{% endif %}
     </li>
     {%- endfor %}
-</ul> #}
+</ol>
 
 {# <p>
     I used to do art: 

@@ -64,147 +64,6 @@ function escapeRegex(value) {
     return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
-function normalizeDate(value) {
-    if (!value) {
-        return null;
-    }
-    if (value instanceof Date && !Number.isNaN(value.getTime())) {
-        return value;
-    }
-    const parsed = new Date(value);
-    if (Number.isNaN(parsed.getTime())) {
-        return null;
-    }
-    return parsed;
-}
-
-function formatDate(value) {
-    const normalized = normalizeDate(value);
-    if (!normalized) {
-        return "";
-    }
-
-    const year = normalized.getUTCFullYear();
-    const month = String(normalized.getUTCMonth() + 1).padStart(2, "0");
-    const day = String(normalized.getUTCDate()).padStart(2, "0");
-    return `${year}-${month}-${day}`;
-}
-
-function getMostRecentDate(dateValue, updateDateValue) {
-    const date = normalizeDate(dateValue);
-    const updateDate = normalizeDate(updateDateValue);
-
-    if (!date && !updateDate) {
-        return null;
-    }
-    if (!date) {
-        return updateDate;
-    }
-    if (!updateDate) {
-        return date;
-    }
-    return date >= updateDate ? date : updateDate;
-}
-
-async function getNunjucksContentFiles(dirPath) {
-    const entries = await fs.readdir(dirPath, { withFileTypes: true });
-    const files = [];
-
-    for (const entry of entries) {
-        const fullPath = path.join(dirPath, entry.name);
-        if (entry.isDirectory()) {
-            if (entry.name === "_includes") {
-                continue;
-            }
-            files.push(...(await getNunjucksContentFiles(fullPath)));
-            continue;
-        }
-
-        if (entry.isFile() && entry.name.endsWith(".njk")) {
-            files.push(fullPath);
-        }
-    }
-
-    return files;
-}
-
-function getFrontMatterData(fileContents) {
-    const frontMatterMatch = fileContents.match(/^---\s*\n([\s\S]*?)\n---\s*\n?/);
-    if (!frontMatterMatch) {
-        return null;
-    }
-
-    const frontMatterRaw = frontMatterMatch[1].trim();
-    if (!frontMatterRaw) {
-        return null;
-    }
-
-    try {
-        return JSON.parse(frontMatterRaw);
-    } catch {
-        return null;
-    }
-}
-
-function buildUrlFromContentPath(filePath) {
-    const relativePath = path.relative(CONTENT_DIR, filePath);
-    const withoutExt = relativePath.replace(/\.njk$/, "");
-    const segments = withoutExt.split(path.sep);
-
-    if (segments.length === 1 && segments[0] === "index") {
-        return "/";
-    }
-    if (segments[segments.length - 1] === "index") {
-        return `/${segments.slice(0, -1).join("/")}/`;
-    }
-    if (segments.length > 1 && segments[segments.length - 1] === segments[segments.length - 2]) {
-        return `/${segments.slice(0, -1).join("/")}/`;
-    }
-    return `/${segments.join("/")}/`;
-}
-
-async function buildDatedPagesList() {
-    const files = await getNunjucksContentFiles(CONTENT_DIR);
-    const pages = [];
-
-    for (const filePath of files) {
-        const source = await fs.readFile(filePath, "utf8");
-        const frontMatterData = getFrontMatterData(source);
-        if (!frontMatterData) {
-            continue;
-        }
-
-        const date = normalizeDate(frontMatterData.date);
-        const updateDate = normalizeDate(frontMatterData.updateDate);
-        const sortDate = getMostRecentDate(date, updateDate);
-        if (!sortDate) {
-            continue;
-        }
-
-        const primaryDate = date || updateDate;
-        pages.push({
-            title: frontMatterData.title || buildUrlFromContentPath(filePath),
-            url: buildUrlFromContentPath(filePath),
-            formattedDate: formatDate(primaryDate),
-            formattedUpdateDate: formatDate(updateDate),
-            sortTime: sortDate.getTime(),
-            primaryTime: primaryDate.getTime(),
-        });
-    }
-
-    pages.sort(function(a, b) {
-        if (b.sortTime !== a.sortTime) {
-            return b.sortTime - a.sortTime;
-        }
-        if (b.primaryTime !== a.primaryTime) {
-            return b.primaryTime - a.primaryTime;
-        }
-        return a.title.localeCompare(b.title);
-    });
-
-    return pages;
-}
-
 async function removeOldFingerprintedFiles(assetsDir, fileName, keepName) {
     const ext = path.extname(fileName);
     const base = path.basename(fileName, ext);
@@ -257,13 +116,27 @@ export default function(eleventyConfig) {
         language: "json",
     });
 
+    eleventyConfig.addCollection("sortedPages", function(collectionApi) {
+        return collectionApi.getAll()
+        .filter(function(page) {
+            return !!page.data.createDate
+        })
+        .sort(function(a, b) {
+            const aDate = a.data.updateDate || a.data.createDate;
+            const bDate = b.data.updateDate || b.data.createDate;
+            // Configured dates shall be in yyyy-mm-dd format, so a simple text comparison is okay
+            if (aDate > bDate) return -1;
+            else if (aDate < bDate) return 1;
+            else {
+                return b.date - a.date;
+            }
+        });
+    });
+
+    // for /epiphanylist
     for (const tier of ["S", "A", "B", "C", "D"]) {
         addEpiphanyTierCollection(eleventyConfig, tier);
     }
-
-    eleventyConfig.addGlobalData("datedPages", async function() {
-        return buildDatedPagesList();
-    });
 
     eleventyConfig.addGlobalData("assetManifest", async function() {
         assetManifest = await buildAssetManifest();
