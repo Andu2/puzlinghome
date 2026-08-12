@@ -1,0 +1,17 @@
+{% macro imageGallery(items) %}
+<ul class="image-gallery fullrow">
+    {% for item in items %}
+        {% set previewSrc = item.src | replace('.png', '-preview.png') %}
+        <li>
+            <figure>
+                <a href="{{ item.src }}" data-full-src="{{ item.src }}">
+                    <img class="preview" src="{{ previewSrc }}" alt="Image preview" />
+                </a>
+                {% if item.caption %}
+                    <figcaption>{{ item.caption }}</figcaption>
+                {% endif %}
+            </figure>
+        </li>
+    {% endfor %}
+</ul>
+{% endmacro %}

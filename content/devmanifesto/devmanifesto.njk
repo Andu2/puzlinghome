@@ -4,34 +4,64 @@
     "title": "Dev Manifesto"
 }
 ---
-<h2>AI</h2>
+{% from "sidenote.njk" import sidenote %}
+{% from "link.njk" import externalLink %}
 <p>
-     * Developers are responsible for their LLM output - just like a boss is ultimately responsible for their team
-    * Link to AI puzzle site
-    * AI is fantastic at generalizations and terrible at specifics
-
-    Right now, LLMs are very good at writing 90% of code. It would be foolish to avoid them entirely
-when the goal is to get things done.
-
-However, I *strongly* believe that we should understand what we are doing.
-For that reason, I do not "vibe code". I only rarely use LLMs as agents, and I always read what they produce.
-When I'm learning something new, I don't let AI write any of the code at all.
-
-At some point in the future, AI will be better than all humans at writing code.
-This makes me uncomfortable and sad. 
-Until then, I have to believe that my ability to understand code 
-and the core purpose of software at a deeper level than the LLMs is valuable.
+    Software engineering is often more like ethics than like mathematics. 
+    There are broad ideas which most software developers agree are good, such as avoiding global variables.
+    And there are narrow scenarios in which everyone would agree that one solution is better than another.
+    However, real-world problems depend on too many subjective factors
+    to be able to definitively say that one solution is the best solution.
+</p>
+<p>
+    Many software development opinions are based on which strategies are easiest for the programmer.
+    This, of course, is highly subjective.
+</p>
+<p>
+    The following document contains all my software development opinions.
+    I expect that these opinions will change over time, and this document will be frequently updated.
 </p>
 
-<h2>Arguments</h2>
+<nav>
+    <ol>
+        <li><a href="#">biatch</a></li>
+    </ol>
+</nav>
+
+<h2>Just Make Things</h2>
 <p>
-    If a function has more than one parameter, the parameters should be named, if the language allows.
-Named and default arguments are one of my favorite language features, and one of the biggest features missing from Go.
+    Much of this document envisions an ideal piece of software.
+    It is important to keep in mind that in many cases, perfectly-designed software is suboptimal.
+    Software development is fundamentally about <em>making programs that do something</em>,
+    and spending time writing perfect code is only worthwhile if it helps us make more software that works!
+    It is not worth it to worry about writing more descriptive variable names in a short one-off script.
+    It is not worth it to split code into many small modules and add a complex build process in a quick prototype.
+    Only once the software has reached a stage of widespread use and complexity does it make sense to try to follow all best practices to the letter.
+    Before then, you don't even know the software will be useful. You don't even know the problem yet,
+    so why bother with clean code? Clean code isn't the goal, working software is.
+    Things like refactoring an older codebase written when object-oriented programming was in style
+    to make it more functional now that functional programming is in style,
+    or migrating to the newest library
 </p>
 
-<h2>Automation</h2>
+<h3>Modern</h3>
 <p>
+    The term "modern" is often used as justification for why some new technology is better.
+    What does "modern" mean? It is meaningless.
+    "Modern" is the term people use when they're trying to say that whatever you're using is uncool now 
+    and whatever they're making is the new cool thing you should be using instead.
+    This is thoroughly unconvincing. Often there <em>are</em> legitimate reasons to switch to new tools,
+    but those reasons had better be because the new tool solves a non-trivial problem, not just because the new tool is now.
+</p>
 
+<h3>Programmer Career Stages</h3>
+<p>
+    There are three phases of being a developer.
+    A beginner programmer can barely figure out how to get things done, and ends up making things one way, the way they know how.
+    An intermediate programmer has learned many ways to get things done, and spends most of their time trying to figure out which strategy to use. 
+    They are not much more efficient than the beginner programmer.
+    An expert programmer knows many ways to get things done, and is able to quickly identify the best strategy for a given problem.
+    They are vastly more efficient than either the beginner or the expert.
 </p>
 
 <h2>Clean Code</h2>
@@ -55,82 +85,7 @@ Some clean code strategies result in worse performance. In particular, Object-Or
 As for the commonly cited book *Clean Code*...I am not a fan. 
 </p>
 
-<h2>Codebase</h2>
-<p>
-    Use a formatter
-</p>
-
-<h2>Dependencies</h2>
-<p>
-    Dependencies are a trade-off between liability and prototyping speed.
-</p>
-    
-<h2>Errors</h2>
-<p>
-    I prefer errors as values over exceptions, because it makes control flow predictable.
-If using exceptions, a function that can throw an exception should be clearly marked.
-</p>
-
-<h2>Big Files</h2>
-<p>
-    Splitting code into hundreds of files and directories adds complexity.
-Big files are better if all the code is related. They're easier to search through.
-</p>
-
-<h2>Functional Programming</h2>
-<p>
-    Bad garbage collection
-Hard to understand
-</p>
-
-<h2>Functions</h2>
-<p>
-    A function's arguments should include everything that it needs to use.
-Sometimes this is called "dependency injection", which is a needlessly confusing term.
-
-Pure functions are nice, but sometimes it's easier and better to just have side effects.
-It's counterproductive to bend over backwards and write confusing, slow code in places where
-just modifying the input object would be simple enough. And sometimes side effects are unavoidable, anyway.
-</p>
-
-<h2>Languages</h2>
-<p>
-    JavaScript was my first programming language, and for a while it was the only language I knew,
-so I am heavily influenced by it.
-However, I don't like the TypeScript + React + npm dependency hell version of it.
-
-My favorite programming language is Odin. followed by Go, and then plain ol' C.
-
-Python is good as a replacement for Bash, but it is not good as a software language.
-</p>
-
-<h2>Just Get Things Done</h2>
-<p>
-    Software Developers sometimes spend too much time trying to write clean code at the expense of actually getting things done.
-(It's me. I have to constantly remind myself of this.)
-
-Ultimately, developing software is about making a thing that works, not about finding the right abstraction, or the right name for a variable!
-
-Fast iteration
-Don't plan for things that might not happen
-Stop refactoring so much
-Don't refactor something just because you don't understand it
-
-original:
-The most important goal in software development is to develop software.
-To anyone outside of the field, this would seem so self-explanatory that it shouldn't even be mentioned,
-yet devs spend a lot of time on things that aren't *making software*.
-Things like migrating to the newest library, or refactoring 
-</p>
-
-<h2>Modern</h2>
-<p>
-    What does "modern" mean? It is meaningless. 
-"Modern" is the term people use when they're trying to say that whatever you're using is uncool now 
-and whatever they're making is the new cool thing you should be using instead.
-</p>
-
-<h2>Modules</h2>
+<h3>Modules</h3>
 <p>
     Good modules are the key to clean code.
 
@@ -140,7 +95,54 @@ A good module has as few dependencies as possible.
 Deep modules!
 </p>
 
-<h2>Object-Oriented Programming</h2>
+<h3>Arguments</h3>
+<p>
+    If a function has more than one parameter, the parameters should be named, if the language allows.
+Named and default arguments are one of my favorite language features, and one of the biggest features missing from Go.
+</p>
+
+<h3>Tabs, quotes and other formatting concerns</h3>
+<p>
+    Just use a formatter and configure your editor to format on save.
+    {%- call sidenote("sn-spaces-tabs") %}
+    I personally prefer tabs and double quotes, despite the results of the
+    {{ externalLink("https://stackoverflow.blog/2017/06/15/developers-use-spaces-make-money-use-tabs/", "2017 StackOverflow survey") -}}
+    .
+    {% endcall -%}
+</p>
+
+<h3>Errors</h3>
+<p>
+    I prefer errors as values over exceptions, because it makes control flow predictable.
+If using exceptions, a function that can throw an exception should be clearly marked.
+</p>
+
+<h3>Big Files</h3>
+<p>
+    Splitting code into hundreds of files and directories adds complexity.
+Big files are better if all the code is related. They're easier to search through.
+</p>
+
+<h3>Functional Programming</h3>
+<p>
+    Bad garbage collection
+Hard to understand
+</p>
+
+<h3>Functions</h3>
+<p>
+    A function's arguments should include everything that it needs to use.
+Sometimes this is called "dependency injection", which is a needlessly confusing term.
+
+Pure functions are nice, but sometimes it's easier and better to just have side effects.
+It's counterproductive to bend over backwards and write confusing, slow code in places where
+just modifying the input object would be simple enough. And sometimes side effects are unavoidable, anyway.
+</p>
+
+
+
+
+<h3>Object-Oriented Programming</h3>
 <p>
     and memory management easier
     OOP is a strategy for making code easier to understand, at the cost of performance.
@@ -158,6 +160,22 @@ Don't like polymorpishm
 Do like encapsulation at module boundaries
 </p>
 
+<h3>Dependencies</h3>
+<p>
+    Dependencies are a trade-off between liability and prototyping speed.
+</p>
+
+<h2>Performance Matters</h2>
+<p>
+    Clean code is subjective. Performance is not.
+</p>
+<p>
+    For as long as I've known the field, software development has trended toward making things
+    easier for programmers to understand, at the expense of performance.
+    Well, now we have AI, and people aren't bothering to understand what the code does anyway.
+    
+</p>
+
 <h2>Project Management</h2>
 <p>
     I prefer teams where each individual owns a piece of the work.
@@ -173,27 +191,11 @@ At some point you have to trust the devs. Not every detail can be specced out
 Start on a good idea right away
 </p>
 
-<h2>JavaScript Frameworks</h2>
+<h3>Understand the Domain</h3>
 <p>
-    Solid Svelte Vue React
-</p>
+    In order to make good software, developers ought to understand the problem the software is trying to solve.
 
-<h2>Security</h2>
-<p>
-    At a shallow level, software security is about doing what everyone says to do.
-At a deeper level, software security is about understanding the systems you're using.
-
-Security directly opposes usability.
-</p>
-
-<h2>Test-Driven Development</h2>
-<p>
-    TDD only works when the problem has already been solved *and* the API has already been chosen.
-Most of the time it is counterproductive. But in some cases, such as when implementing an RFC spec, it may be helpful.
-Using it 100% of the time is a terrible idea.
-
-I used TDD when writing a [WebSocket server in Go](), 
-and it was extremely productive because the [test suite](https://github.com/crossbario/autobahn-testsuite) already existed.
+The user doesn't always know what's possible, good software comes straight from devs that understand, not from user complaints (anti agile)
 </p>
 
 <h2>Testing</h2>
@@ -222,14 +224,96 @@ I have seen tests
 I don't find the unit/integration/e2e test distinction useful.
 </p>
 
-<h2>TypeScript</h2>
+<h3>Test-Driven Development</h3>
+<p>
+    TDD only works when the problem has already been solved *and* the API has already been chosen.
+Most of the time it is counterproductive. But in some cases, such as when implementing an RFC spec, it may be helpful.
+Using it 100% of the time is a terrible idea.
+
+I used TDD when writing a [WebSocket server in Go](), 
+and it was extremely productive because the [test suite](https://github.com/crossbario/autobahn-testsuite) already existed.
+</p>
+
+<h2>Security</h2>
+<p>
+    At a shallow level, software security is about doing what everyone says to do.
+At a deeper level, software security is about understanding the systems you're using.
+
+Security directly opposes usability.
+</p>
+
+<h2>Automation</h2>
 <p>
 
 </p>
 
-<h2>Understand the Domain</h2>
-<p>
-    In order to make good software, developers ought to understand the problem the software is trying to solve.
 
-The user doesn't always know what's possible, good software comes straight from devs that understand, not from user complaints (anti agile)
+
+
+    
+
+
+<h2>Languages</h2>
+<p>
+    JavaScript was my first programming language, and for a long time it was the only language I knew,
+    so my tastes are heavily influenced by it.
+    However, I don't like the TypeScript + React + npm dependency hell version of it.
+
+    My favorite programming language is Odin. followed by Go, and then plain ol' C.
+
+    Python is good as a replacement for Bash, but it is not good as a software language.
+
+    I haven't yet given Rust an honest try.
+    It seems like it would be bad when working on a poorly-specified problem that changes constantly,
+    which is most important problems.
+    It seems like it would be very good at reimplementing known specs in a less bug-prone way.
 </p>
+
+
+
+
+
+
+
+<h3>JavaScript Frameworks</h3>
+<p>
+    Solid Svelte Vue React
+</p>
+
+<h3>TypeScript</h3>
+<p>
+
+</p>
+
+<h2>AI</h2>
+<p>
+    I started this document by stating that most of this only matters situuationally because the rules may be bent to get things done.
+    Now I end this document by stating that none of this matters because of AI.
+
+    For the past year I have done work in AI training, providing programming expertise for model data.
+    As a result, I am somewhat in-tune with what the latest models can do, because I try to get them to fail.
+    Well, if a programming tasks is well specified, they can get it done almost 100% of the time.
+    It may not be the simplest representation, but it will get it done.
+
+     * Developers are responsible for their LLM output - just like a boss is ultimately responsible for their team
+    * Link to AI puzzle site
+    * AI is fantastic at generalizations and terrible at specifics
+
+    Right now, LLMs are very good at writing 90% of code. It would be foolish to avoid them entirely
+when the goal is to get things done.
+
+However, I *strongly* believe that we should understand what we are doing.
+For that reason, I do not "vibe code". I only rarely use LLMs as agents, and I always read what they produce.
+When I'm learning something new, I don't let AI write any of the code at all.
+
+At some point in the future, AI will be better than all humans at writing code.
+This makes me uncomfortable and sad. 
+Until then, I have to believe that my ability to understand code 
+and the core purpose of software at a deeper level than the LLMs is valuable.
+</p>
+
+
+
+
+
+

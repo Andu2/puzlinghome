@@ -1,0 +1,571 @@
+---
+{
+    "layout": "master.njk",
+    "title": "Art",
+    "createDate": "2026-08-11"
+}
+---
+{% from "imagegallery.njk" import imageGallery %}
+
+{% set favorites = [
+    {
+        src: "pageassets/group_favorites/seniornotes.png",
+        caption: "This is what started it all. I drew a little bit every day over the course of high school physics."
+    },
+    {
+        src: "pageassets/group_favorites/concrete.png"
+    },
+    {
+        src: "pageassets/group_favorites/input.png"
+    },
+    {
+        src: "pageassets/group_favorites/divot.png"
+    },
+    {
+        src: "pageassets/group_favorites/embryoigloo.png"
+    },
+    {
+        src: "pageassets/group_favorites/hollow.png"
+    },
+    {
+        src: "pageassets/group_favorites/girl.png",
+        caption: "I made this recently! I'm not very good at drawing people, but I wanted to try drawing an anime girl."
+    },
+    {
+        src: "pageassets/group_favorites/radial.png"
+    },
+    {
+        src: "pageassets/group_favorites/riblung.png",
+        caption: "I printed this on a shirt, but it looked a little weird because the white happy faces ended up being right around the nipples."
+    },
+    {
+        src: "pageassets/group_favorites/scribbleagain.png"
+    },
+    {
+        src: "pageassets/group_favorites/blow.png"
+    }
+] %}
+
+{% set inkfaces = [
+    {
+        src: "pageassets/group_inkfaces/art042.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art043.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art044.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art045.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art046.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art047.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art048.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art049.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art050.png"
+    },
+    {
+        src: "pageassets/group_inkfaces/art102.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art001.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art002.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art003.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art004.png"
+    }
+] %}
+
+{% set inksquares = [
+    {
+        src: "pageassets/group_inksquares/art096.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art098.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art099.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art101.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art103.png",
+        caption: "Not even good advice"
+    },
+    {
+        src: "pageassets/group_inksquares/art105.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art183.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art184.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art194.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art212.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art091.png"
+    },
+    {
+        src: "pageassets/group_inksquares/art093.png"
+    }
+] %}
+
+{% set notebooks = [
+    {
+        src: "pageassets/group_notebooks/art229.png",
+        caption: "In college, I used one notebook per semester, and I thought it would be fun to give them nice covers."
+    },
+    {
+        src: "pageassets/group_notebooks/art230.png",
+        caption: "This is the back of the same notebook as the previous image."
+    },
+    {
+        src: "pageassets/group_notebooks/art231.png",
+        caption: "I \"laminated\" the notebooks by placing carefully aligned pieces of packing tape."
+    },
+    {
+        src: "pageassets/group_notebooks/art232.png"
+    }
+] %}
+
+{% set scribbles = [
+    {
+        src: "pageassets/group_scribbles/art026.png",
+        caption: "For the next series of drawings, I had people scribble on a piece of paper with a color of their choice, and I built on it."
+    },
+    {
+        src: "pageassets/group_scribbles/art027.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art029.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art030.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art031.png",
+        caption: "100 points if you can find where I wrote the name"
+    },
+    {
+        src: "pageassets/group_scribbles/art032.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art033.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art034.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art035.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art036.png"
+    },
+    {
+        src: "pageassets/group_scribbles/art037.png"
+    }
+] %}
+
+{% set coloredpencil = [
+    {
+        src: "pageassets/group_coloredpencil/art199.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/scan01.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/scan02.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/scan03.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/scan04.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/scan05.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art069.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art070.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art005.png",
+        caption: "These colored pencil drawings are from before I was taking art \"seriously\", so they are just on flimsy printer paper!"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art060.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art073.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art063.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art071.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art066.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art067.png",
+        caption: "I got bored of using colors that go well together..."
+    },
+    {
+        src: "pageassets/group_coloredpencil/art074.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art179.png"
+    }
+] %}
+
+{% set maps = [
+    {
+        src: "pageassets/group_maps/art015.png"
+    },
+    {
+        src: "pageassets/group_maps/art016.png"
+    },
+    {
+        src: "pageassets/group_maps/art115.png"
+    }
+] %}
+
+{% set digitalcolor = [
+    {
+        src: "pageassets/group_digitalcolor/smoove.png"
+    },
+    {
+        src: "pageassets/group_digitalcolor/sortafly.png"
+    },
+    {
+        src: "pageassets/group_digitalcolor/headpho.png"
+    }
+] %}
+
+{% set ink = [
+    {
+        src: "pageassets/group_ink/art202.png"
+    },
+    {
+        src: "pageassets/group_ink/art204.png"
+    },
+    {
+        src: "pageassets/group_ink/art205.png"
+    },
+    {
+        src: "pageassets/group_ink/art206.png"
+    },
+    {
+        src: "pageassets/group_ink/art207.png",
+        caption: "I turned around five of my designs into shirts, including this one. It was a cool shirt!"
+    },
+    {
+        src: "pageassets/group_ink/art210.png"
+    },
+    {
+        src: "pageassets/group_ink/art211.png"
+    },
+    {
+        src: "pageassets/group_ink/radio.png"
+    },
+    {
+        src: "pageassets/group_ink/art009.png"
+    },
+    {
+        src: "pageassets/group_ink/art010.png"
+    },
+    {
+        src: "pageassets/group_ink/art023.png"
+    },
+    {
+        src: "pageassets/group_ink/art038.png"
+    },
+    {
+        src: "pageassets/group_ink/art039.png"
+    },
+    {
+        src: "pageassets/group_ink/art040.png"
+    },
+    {
+        src: "pageassets/group_ink/art041.png"
+    },
+    {
+        src: "pageassets/group_ink/art052.png"
+    },
+    {
+        src: "pageassets/group_ink/art059.png"
+    },
+    {
+        src: "pageassets/group_ink/art061.png"
+    },
+    {
+        src: "pageassets/group_ink/art062.png"
+    },
+    {
+        src: "pageassets/group_ink/art075.png"
+    },
+    {
+        src: "pageassets/group_ink/art077.png"
+    },
+    {
+        src: "pageassets/group_ink/art078.png"
+    },
+    {
+        src: "pageassets/group_ink/art080.png"
+    },
+    {
+        src: "pageassets/group_ink/art082.png"
+    },
+    {
+        src: "pageassets/group_ink/art083.png"
+    },
+    {
+        src: "pageassets/group_ink/art084.png",
+        caption: "I like parking lots..."
+    },
+    {
+        src: "pageassets/group_ink/art085.png"
+    },
+    {
+        src: "pageassets/group_ink/art106.png"
+    },
+    {
+        src: "pageassets/group_ink/art108.png",
+        caption: "I think this was my first idea for my shoulder tattoo."
+    },
+    {
+        src: "pageassets/group_ink/tatt.png",
+        caption: "This was the tattoo I ended up getting on my shoulder."
+    },
+    {
+        src: "pageassets/group_ink/art113.png"
+    },
+    {
+        src: "pageassets/group_ink/art117.png",
+        caption: "I'm not sure if I intentionally drew two concepts around the word \"apparently\" or if I just forgot I did the other one."
+    },
+    {
+        src: "pageassets/group_ink/art118.png"
+    },
+    {
+        src: "pageassets/group_ink/art132.png"
+    },
+    {
+        src: "pageassets/group_ink/art190.png"
+    }
+] %}
+
+{% set pixel = [
+    {
+        src: "pageassets/group_pixel/rip.png",
+        caption: "Before I did doodly art, I did pixel art."
+    },
+    {
+        src: "pageassets/group_pixel/cancer.png",
+        caption: "I got into pixel art because I was into Game Maker and its community."
+    },
+    {
+        src: "pageassets/group_pixel/handman.png",
+        caption: "This is like, middle school art here. Hopefully it's not too cringe?"
+    },
+    {
+        src: "pageassets/group_pixel/lickhead.png"
+    },
+    {
+        src: "pageassets/group_pixel/methhead.png"
+    },
+    {
+        src: "pageassets/group_pixel/face.png"
+    },
+    {
+        src: "pageassets/group_pixel/footsax.png"
+    },
+    {
+        src: "pageassets/group_pixel/ronin.png"
+    },
+    {
+        src: "pageassets/group_pixel/onion.png",
+        caption: "This pixel art is actually recent! ...Did I get any better in 20 years?"
+    }
+] %}
+
+{% set inkandcolor = [
+    {
+        src: "pageassets/group_inkandcolor/art191.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/triangle.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art007.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art011.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art017.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art215.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art020.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art086.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art088.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art107.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art186.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art192.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art193.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art195.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art196.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art208.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/whaleroses.png",
+        caption: "I gave this one away, so I only have this blurry image."
+    },
+    {
+        src: "pageassets/group_inkandcolor/art079.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art006.png"
+    },
+    {
+        src: "pageassets/group_coloredpencil/art051.png"
+    },
+    {
+        src: "pageassets/group_inkandcolor/art008.png"
+    }
+] %}
+
+{% set artstudent = [
+    {
+        src: "pageassets/group_artstudent/art226.png",
+        caption: "The next several images are art class assignments in roughly chronological order. Starting with...balls."
+    },
+    {
+        src: "pageassets/group_artstudent/art221.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art224.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art225.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art227.png"
+    },
+    {
+        src: "pageassets/group_artstudent/plug.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art209.png",
+        caption: "This one looks impressive, but we practically traced a reference image, so it feels like cheating."
+    },
+    {
+        src: "pageassets/group_artstudent/cleanpainting.png",
+        caption: "This painting got ruined, so this blurry picture is the best I have from when it was still clean."
+    },
+    {
+        src: "pageassets/group_artstudent/art217.png",
+        caption: "Easily the biggest painting I've ever done. I struggle with the imprecision of paint."
+    },
+    {
+        src: "pageassets/group_artstudent/inert.png",
+        caption: "My best still-life. I don't have this one anymore, so this is the best picture I can get."
+    },
+    {
+        src: "pageassets/group_artstudent/art013.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art014.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art219.png"
+    },
+    {
+        src: "pageassets/group_artstudent/art220.png"
+    },
+    {
+        src: "pageassets/group_artstudent/missingstilllife.png",
+        caption: "I gave this one away, so this is an old picture."
+    },
+    {
+        src: "pageassets/group_artstudent/missingcharcoal.png",
+        caption: "I gave this one away, so this is an old picture."
+    },
+    {
+        src: "pageassets/group_artstudent/art218.png"
+    }
+] %}
+
+{% set allArt = favorites
+    .concat(digitalcolor)
+    .concat(inkandcolor)
+    .concat(notebooks)
+    .concat(artstudent)
+    .concat(inksquares)
+    .concat(ink)
+    .concat(inkfaces)
+    .concat(maps)
+    .concat(coloredpencil)
+    .concat(scribbles)
+    .concat(pixel)
+%}
+
+<p>
+    From 2011 to about 2014, I drew a lot of art. It started as idle doodles in class,
+    and climaxed as half a year of art school.
+    My specialty was sharp lines and interesting patterns,
+    with the occasional creepy face.
+</p>
+
+<p>
+    Now enjoy...the big wall of art!
+</p>
+<!--I considered having a section for each art grouping, but it looks way cooler as a big wall of art!-->
+
+{{ imageGallery(allArt) }}
