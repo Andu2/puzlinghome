@@ -104,7 +104,16 @@ function addEpiphanyTierCollection(eleventyConfig, tier) {
         return fullList.filter(function(item) {
             return item.data.tier == tier;
         }).sort(function(a, b) {
-            return a.data.order - b.data.order;
+            if (a.data.order || b.data.order) {
+                const aOrder = a.data.order ?? 0;
+                const bOrder = b.data.order ?? 0;
+                return aOrder - bOrder;
+            } else {
+                if (!a.data.score || !b.data.score) {
+                    throw new Error("Epiphany game missing a score");
+                }
+                return b.data.score - a.data.score;
+            }
         });
     });
 }
@@ -134,7 +143,7 @@ export default function(eleventyConfig) {
     });
 
     // for /epiphanylist
-    for (const tier of ["S", "A", "B", "C", "D"]) {
+    for (const tier of ["S", "A", "B", "C", "PuzzleBox", "Borderline"]) {
         addEpiphanyTierCollection(eleventyConfig, tier);
     }
 

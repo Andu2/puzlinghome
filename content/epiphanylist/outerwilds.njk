@@ -1,60 +1,99 @@
 ---
 {
-    "permalink": false,
     "tags": "epiphanygame",
     "layout": "epiphanygamereview.njk",
     "title": "Outer Wilds",
+    "createDate": "2026-09-10",
     "tier": "S",
-    "genre": "Pure epiphany game",
+    "genre": "Xenoarchaeology",
     "tierJustification": "The quintessential example of an epiphany-driven game. I can't possibly put it anywhere other than the top.",
-    "order": 1,
+    "order": -10,
     "icon": "outerwilds-icon.jpg",
     "screenshot": "outerwilds.jpg",
-    "summary": "Fly around in space and explore the ruins of a lost civilization and discover the nature of the universe. The quintessential example of a curiosity-driven game.",
-    "score": "9.5",
-    "epiphanyScore": "10",
+    "summary": "Fly around in space, explore the ruins of a lost alien civilization and discover the nature of the universe.",
+    "score": 9.5,
+    "twists": 5,
+    "mystery": 5,
+    "agency": 5,
+    "worldbuilding": 5,
     "length": "20 hours",
     "gameLinks": [{
         "text": "Steam",
         "icon": "steam.svg",
         "url": "https://store.steampowered.com/app/753640/Outer_Wilds/"
-    }],
-    "proConList": [{
-        "class": "positive",
-        "value": "Excellent epiphanies"
-    }, {
-        "class": "positive",
-        "value": "Cohesive universe with no plotholes. By the end, it all makes sense"
-    }, {
-        "class": "positive",
-        "value": "Space! Planets!"
-    }, {
-        "class": "subjective",
-        "value": "Sometimes very scary"
-    }, {
-        "class": "negative",
-        "value": "Difficult controls are a skill to be learned and may inhibit progress"
-    }, {
-        "class": "negative",
-        "value": "Some poorly designed puzzles"
     }]
 }
 ---
+{% from "spoiler.njk" import spoiler %}
+{% from "sidenote.njk" import sidenote %}
+{% from "link.njk" import externalLink %}
 <p>
-    This is the game that defines the genre.
-    Outer Wilds is the most pure example of an epiphany-driven game. It has no combat system,
-    no stats, no unlockable items. The only thing stopping the player from
-    beating the game within 10 minutes of booting it up is a lack of knowledge.
-    Outer Wilds is the one true example of a "Metroidbrainia" - the only thing you unlock is knowledge.
+    A short while after I finished Outer Wilds, I started to feel regret.
+    I realized that I would never again be able to play Outer Wilds for the first time.
+    This feeling is {{ externalLink("https://www.reddit.com/r/metroidbrainia/comments/1u61pfl/games_like_outer_wilds/", "not uncommon") }}
+    among those who complete the game.
+    Sometimes, I {{ externalLink("https://www.youtube.com/@eelis2/videos", "watch others play the game") }}
+    so that I can experience that first-time feeling again vicariously.
+    My entire <a href="/epiphanylist">Epiphany Game Tier List</a> basically exists to answer the question 
+    "are there any other games that will give me the same sense of joy and fulfillment that Outer Wilds did?",
+    with various imperfect answers. There is nothing as good as Outer Wilds.
 </p>
 <p>
-    The universe just exists, and you have to figure out how it works.
+    So what exactly is this video game that people talk about like it's a religious experience?
+    Well, Outer Wilds is archaeology in space.
+    You fly around a solar system to find ruins of an ancient alien species.
+    By reading their texts, you come to understand who they were, why they were here, and what they were doing.
+    Eventually, you come to understand the nature of the universe itself.
+    There is no combat, no unlockable items, no numbers that go up. The game progresses via knowledge alone.
+    {%- call sidenote("sn-spoilers") %}
+    As you can imagine, a game like this is EXTREMELY sensitive to spoilers. Knowing anything about the game ruins the point of the game.
+    Outer Wilds is the epitome of "don't read anything before playing it". Huh, where does that put this review...
+    {% endcall %}
+    It's the perfect format for the type of player who is self-motivated by curiosity.
 </p>
 <p>
-    Even though it's one of my favorite games, it has a flaw, which is the puzzles.
-    Some of the puzzles may remain unsolved even when the player is doing basically the correct thing,
-    which may lead the player to waste time trying obscure solutions. One of the final puzzles is
-    simultaneously too easy and too hard - it is possible to solve accidentally, which will reveal the
-    entire plot and ruins the game, but the correct solution is also somewhat illogically nitpicky, and
-    the player may decide
+    Outer Wilds is not the first game that is driven by knowledge alone.
+    In fact, this is basically how all puzzle games work. The goal of a puzzle is to learn how it works.
+    Detective games like Return of the Obra Dinn are similar to Outer Wilds in structure -
+    Outer Wilds even features a built-in {{ externalLink("https://en.wikipedia.org/wiki/Evidence_board", "evidence board") }}.
+    So why is it special?
 </p>
+<p>
+    It is hard to give a formula for why Outer Wilds is better than other games like it.
+    I have tried to come up with a <a href="/epiphanylist/scoring">rubric</a> to judge games on based on the most key elements of Outer Wilds.
+    But even though other games game the same elements, Outer Wilds does it best.
+    It just has such cool and creative ideas. It can't be replicated.
+    {%- call sidenote("sn-replicated") %}
+    Unless you're the original developers, in which case you can make a DLC with brand new ideas that are just as good.
+    {% endcall %}
+    There are so many interesting places to explore! How could you not want to fly to that weird planet in the sky?
+    {%- call sidenote("sn-seamlessspace") %}
+    Seamless space travel is just such a cool game element that I would still enjoy it even if the planets were
+    {{ externalLink("https://store.steampowered.com/app/220200/Kerbal_Space_Program/", "mostly featureless") }}.
+    The first time I simply jumped and flew to another planet in 
+    {{ externalLink("https://store.steampowered.com/app/1366540/Dyson_Sphere_Program/", "Dyson Sphere Program") }}
+    blew my mind. In fact, I bought Outer Wilds because I had just played DSP and wanted more space.
+    {% endcall %}
+</p>
+<p>
+    Outer Wilds' one flaw is its climactic puzzle - {{ spoiler("how to get into the Ash Twin Project") }}.
+    It is simultaneously too easy and too hard. Someone who has the right idea may try a solution that ought to work and give up when it fails,
+    while someone who doesn't understand the solution may solve it on accident. The puzzle grants the player a lot of explicit backstory,
+    so the small percentage of people who find it on accident will have a large chunk of the game's mystery spoiled.
+</p>
+<p>
+    Okay, whew. That previous paragraph felt like I was a news reporter trying to present a topic "fairly"
+    by presenting both sides even though I clearly agree with one of the positions.
+    Outer Wilds is one of the best games of all time. If you've found this page, you've probably already played it.
+    If not, do so right now, and don't read anything more.
+</p>
+
+<ul class="proconlist">
+    <li class="positive">Amazing discoveries</li>
+    <li class="positive">Coherent universe with no plotholes. By the end, it all makes sense</li>
+    <li class="positive">Excellent setting. Space! Planets!</li>
+    <li class="subjective">Sometimes very scary</li>
+    <li class="subjective">Not much dialogue</li>
+    <li class="negative">Difficult controls may deter players before they can really get into it</li>
+    <li class="negative">Most important puzzle is poorly calibrated</li>
+</ul>

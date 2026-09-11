@@ -4,39 +4,26 @@
     "layout": "epiphanygamereview.njk",
     "title": "Lingo",
     "createDate": "2026-07-03",
-    "tier": "C",
+    "tier": "PuzzleBox",
     "icon": "lingo-icon.png",
     "screenshot": "lingo.png",
     "genre": "Puzzle box",
     "tierJustification": "<em>Very</em> similar to The Witness, but with words instead of lines. Rule discovery is fun, but I didn't have any big eureka moments, only many small ones. Appreciation of this game is heavily dependent on how much you like word puzzles, because there are THOUSANDS of them, plus some 3rd-party maps. This is the only game on the list I didn't get 95%+ completion on, because there is just so much, but I could see myself coming back for more sometime. There's Lingo 2 as well!",
-    "order": 1020,
     "summary": "A rule-discovery word game that takes place in a complex non-Euclidean maze.",
-    "score": "6.5",
-    "epiphanyScore": "3.5",
+    "score": 6.5,
+    "twists": 2,
+    "mystery": 3,
+    "agency": 5,
+    "worldbuilding": 1,
     "length": "20 to 100+ hours",
     "gameLinks": [{
         "text": "Steam",
         "icon": "steam.svg",
         "url": "https://store.steampowered.com/app/1814170/Lingo/"
-    }],
-    "proConList": [{
-        "class": "positive",
-        "value": "Satisfying rule discovery"
-    }, {
-        "class": "positive",
-        "value": "Just so many puzzles"
-    }, {
-        "class": "subjective",
-        "value": "Word puzzles, which rely on American English pronunciation and spelling"
-    }, {
-        "class": "negative",
-        "value": "Tedious complex maze navigation"
-    }, {
-        "class": "negative",
-        "value": "Puzzles with dozens of valid solutions where only one is correct"
     }]
 }
 ---
+{% from "spoiler.njk" import spoiler %}
 {% from "sidenote.njk" import sidenote %}
 {% from "link.njk" import externalLink %}
 <p>
@@ -90,7 +77,7 @@
     because it all looks the same.
     Additionally, the maze is full of one-way teleports.
     It is a nightmare to navigate methodically. I eventually managed to find and solve 97.5%
-    of the puzzles in <span class="spoiler">level 1</span>, but I never outgrew the feeling that I was just walking around randomly,
+    of the puzzles in {{ spoiler("level 1") }}, but I never outgrew the feeling that I was just walking around randomly,
     and I have no desire to hunt for the puzzles I missed. I don't want to solve mazes, I want to solve word puzzles!
 </p>
 <p>
@@ -98,3 +85,11 @@
     But I absolutely intend to come back someday with a fresh mind.
     There are thousands more puzzles that need to be solved, after all!
 </p>
+
+<ul class="proconlist">
+    <li class="positive">Satisfying rule discovery</li>
+    <li class="positive">Just so many puzzles</li>
+    <li class="subjective">Word puzzles, which rely on American English pronunciation and spelling</li>
+    <li class="negative">Tedious complex maze navigation</li>
+    <li class="negative">Puzzles with dozens of valid solutions where only one is correct</li>
+</ul>

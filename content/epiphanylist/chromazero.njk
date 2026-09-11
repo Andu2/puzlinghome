@@ -1,17 +1,20 @@
 ---
 {
-    "permalink": false,
     "tags": "epiphanygame",
     "layout": "epiphanygamereview.njk",
     "title": "Chroma Zero",
+    "createDate": "2026-09-10",
     "genre": "Puzzle box",
     "icon": "chromazero-icon.png",
-    "tier": "D",
+    "screenshot": "chromazero.png",
+    "tier": "PuzzleBox",
     "tierJustification": "This is the only game on this list other than Outer Wilds where the game is winnable from the start, and you truly only need knowledge to progress. But in contrast to Outer Wilds' incredible worldbuilding, this game is just a box full of randomly placed 3D models. The mechanics felt arbitrary in a way that made some puzzles unsatisfying to solve.",
-    "order": 10,
-    "summary": "Chewnic",
-    "score": "4.5",
-    "epiphanyScore": "4",
+    "summary": "A color-based puzzle. Experiment with filling and erasing objects until you learn how the world works.",
+    "score": 4.5,
+    "twists": 2,
+    "mystery": 2,
+    "agency": 4,
+    "worldbuilding": 1,
     "length": "10 hours",
     "gameLinks": [{
         "text": "Steam",
@@ -20,6 +23,80 @@
     }]
 }
 ---
+{% from "sidenote.njk" import sidenote %}
+{% from "link.njk" import externalLink %}
+{% from "spoiler.njk" import spoiler %}
+
 <p>
-pile of assets
+    Truly in the spirit of <a href="/epiphanylist/outerwilds">Outer Wilds</a>,
+    Chroma Zero is a game where all the progression occurs inside the player's brain.
+    There is only one level, and it takes only two minutes to beat,
+    but understanding how to beat it may take ten hours or more.
+    Just like Outer Wilds, there is no permanent world state.
+    The player can reset at any time to try new approaches and learn how the world works,
+    until they eventually learn how to win.
 </p>
+<p>
+    To a certain type of gamer, "It's a lot like Outer Wilds" is an incredible sales pitch.
+    But Chroma Zero is missing a key feature that makes <a href="/epiphanylist">Epiphany Games</a> like Outer Wilds so amazing:
+    It lacks worldbuilding and narrative.
+    In a game like Outer Wilds or Tunic or Fez, the puzzles are intertwined with the story of the universe they're in,
+    so in solving a puzzle, the player not only learns the puzzle, they also learn the world.
+    Chroma Zero is not like this - it has no worldbuilding. The world is a pile of random 3D assets.
+    The mechanics don't feel like they fit into a larger, coherent system.
+    It's not very exciting to explore.
+    Chroma Zero is not an Epiphany Game - it's a {{ externalLink("https://www.youtube.com/watch?v=g45CI65yc7Q", "puzzle box") }}.
+    Puzzle boxes can be lots of fun, but the epiphany moments just aren't as strong.
+    And it's not particularly impressive to say that a puzzle only takes a few minutes to beat if you know the solution.
+    Of course a combination lock can be unlocked if you know the combination!
+</p>
+
+<p>
+    Thus, the fun of Chroma Zero relies not on the narrative, but on the puzzles.
+    And to put it bluntly, I didn't like the puzzles.
+    A good puzzle makes the player feel like they understood something.
+    But in Chroma Zero, many of the solutions feel arbitrary.
+    There are multiple solutions that amount to pressing specific inputs, and these solutions are just handed to you at certain points.
+    Some of the mechanics don't fit together well. They seem to invalidate each other rather than build on each other.
+    To be specific:
+    {{ spoiler("One of the first concepts the game introduces is the color \"balance\", where you only have a limited supply of each color, but spinning the level the other way (an ability learned quite early on) generates infinite color and completely trivializes the problem. What was the point?") }}
+</p>
+
+<p>
+    There are two puzzles in the game which I liked far more than the others,
+    and I hope that by exploring why I liked them, we can learn a bit about what makes a good puzzle.
+    The first is {{ spoiler("making the trees green") }}.
+    This puzzle requires you to combine multiple concepts that you already know in a new way.
+    The solution is satisfying because it is something you can figure out on your own.
+    The difficulty is in thinking outside the box, not in finding the right NPC that tells you the answer.
+    The second is {{ spoiler("the six clues to reactivate the colors") }}.
+    This puzzle completely reframes information you thought you already knew,
+    and you have to look at the world in a new way to solve it.
+    It makes for a good ending sequence to finish the game.
+</p>
+
+<p>
+    Besides the puzzles, there were a few other aspects where the game felt unpolished.
+    The level design felt chaotic, with random 3D models in random locations.
+    The most puzzling object (ha) was the concentric ring platforms.
+    Apparently, you are supposed to fall <em>into</em> these cages, but you can just as easily fall <em>through</em>!
+    I would guess the idea is that you can't tell which direction you are supposed to fall on them from,
+    but I fell through the bottom without getting the prize three times in a row.
+    Relatedly, movement feels bad. It feels weird that the player accelerates slowly but decelerates instantly.
+    Gravity is really low, which gets annoying when several puzzles involve falling in the right spot.
+    At least you get plenty of time to observe your mistake as you slowly fall into the abyss.
+</p>
+
+<p>
+    I am aware that the developer of Chroma Zero is extremely active in the Metroidbrainia community
+    and will likely see this review if I post it somewhere, so I am worried about being too mean.
+    I hope this critique is at least detailed enough to be constructive.
+</p>
+
+<ul class="proconlist">
+    <li class="positive">Good ending sequence that recontextualizes the whole level in an interesting way</li>
+    <li class="negative">Lack of worldbuilding</li>
+    <li class="negative">Weak level design</li>
+    <li class="negative">Mechanics feel arbitrary</li>
+    <li class="negative">Later discoveries invalidate earlier ones rather than building on them</li>
+</ul>

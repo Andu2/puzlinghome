@@ -289,9 +289,33 @@ article img {
     width: 100%;
 }
 
+article figure.article-image {
+    text-align: center;
+}
+
+article figure.article-image figcaption {
+    margin-top: 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: center;
+    color: var(--color-neutral-strong);
+}
+
 article .spoiler {
     cursor: pointer;
     background-color: var(--color-text);
+    transition: background-color 0.5s ease-out;
+}
+
+.spoiler-text {
+    cursor: pointer;
+    background-color: var(--color-text);
+    transition: background-color 0.3s ease-out;
+    border-radius: 2px;
+}
+
+input:checked + .spoiler-text {
+    background-color: var(--color-neutral-weak);
 }
 
 article.with-margin {
@@ -505,11 +529,17 @@ footer {
     gap: 10px;
 }
 
-.tiercardhead > img {
-    width:120px;
-    height:120px;
-    flex-basis:120px;
-    flex-shrink: 0;
+.tiercardaside {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    flex: 0 0 120px;
+}
+
+.tiercardaside > img {
+    width: 120px;
+    height: 120px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.7);
 }
 

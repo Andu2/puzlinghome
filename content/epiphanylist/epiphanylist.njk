@@ -4,55 +4,88 @@
     "title": "Epiphany Games",
     "withMargin": true,
     "createDate": "2026-06-18",
-    "updateDate": "2026-07-03"
+    "updateDate": "2026-09-09"
 }
 ---
+{% from "spoiler.njk" import spoiler %}
 {% from "sidenote.njk" import sidenote %}
 {% from "link.njk" import externalLink %}
+{% from "imagegallery.njk" import articleImage %}
 <p>
-    Sometimes I'll come across a game that's hard to find information for, because
-    the reviews helpfully say "don't read anything about this game before playing it" or
-    <span class="spoiler">they're just big walls of spoiler tags</span>.
-    I try to only buy games I know I'll like, 
-    so, faced with a such a lack of key information...I immediately buy the game and start playing.
+    Your friend tells you about a game they played recently that they really liked, but they won't tell you what the game was about.
+    When you search for it, the reviews all say "don't read any reviews, just play the game".
+    Reddit posts about the game are
+    {{ spoiler("big walls of spoiler tags") }}.
+</p>
+{{ articleImage(
+    "pageassets/owreview.png",
+    "A Steam review that says to avoid reading reviews",
+    externalLink("https://steamcommunity.com/profiles/76561199015299187/recommended/753640/", "Source")
+) }}
+<p>
+    Would you buy the game?
 </p>
 <p>
     When discussions about a game look like the Epstein files,
     it's a sign that the game is what I call an <em>epiphany-driven game</em>.
+    You can't talk about the game with people who haven't played it, because learning the game is the whole point!
     This type of game rewards curiosity with paradigm-shifting moments of understanding.
     It's like being able to go back in time to re-discover quantum physics.
-    In my opinion, a good Epiphany Game is the most satisfying experience in all of media,
-    but each one can only be played once! For that reason, I am always seeking more.
 </p>
 <p>
-    Like many others, my hunger for Epiphany Games started with Outer Wilds.
-    This game is simultaneously genre-defining and unique.
-    A search for "games like Outer Wilds" finds dozens of
-    {{ externalLink("https://www.reddit.com/r/outerwilds/wiki/index/gamerecs/", "posts from other players feeling a bit empty") }}
-    after completing the game or its DLC. There really is nothing quite like Outer Wilds, but there are
-    games that are fun for some of the same reasons. The core of an Epiphany Game
+    Like many others, my hunger for Epiphany Games
     {%- call sidenote("sn-metroidbrainia") %}
     There is also the term "{{- externalLink("https://www.reddit.com/r/metroidbrainia/", "Metroidbrainia") -}}",
-    which describes a Metroidvania where areas are unlocked through player knowledge rather than in-game abilities, 
+    which describes a Metroidvania where progression is made through player knowledge rather than in-game abilities, 
     but I find that this term excludes too many games that evoke the same core feelings as Outer Wilds.
     For example, I find that Subnautica feels similar to Outer Wilds, 
     even though it does not feature knowledge gating.
     {% endcall %}
-    is: 
-    <strong>
-        A coherent universe with hidden truths that must be discovered through self-guided exploration.
-    </strong>
-    For strong epiphanies, the worldbuilding must be solid, so that the revelations make sense,
-    and the game must allow the player to choose their own lines of inquiry,
-    so that the accomplishment feels earned.
+    started with <a href="outerwilds">Outer Wilds</a>.
+    This game is simultaneously genre-defining and unique.
+    A search for "games like Outer Wilds" retrieves dozens of
+    {{ externalLink("https://www.reddit.com/r/outerwilds/wiki/index/gamerecs/", "posts from other players feeling a bit empty") }}
+    after completing the game. There really is nothing quite like Outer Wilds. 
+    But, there are games that are fun for some of the same reasons.
 </p>
 <p>
-    Here is a spoiler-free tier list of Epiphany Games I've completed.
-    The tier criteria are how much I think the games fit the category, and how much I liked the game, combined and weighted on vibes.
+    A prototypical Epiphany Game includes the following elements:
 </p>
-
+<ul>
+    <li><strong>Twists</strong>
+    - An Epiphany Game should trigger epiphanies. It should include big secrets that completely change how the player sees the game.
+    It takes a lot of creativity to come up with something genuinely surprising,
+    and the intellectual payoff is fantastic when it works.
+    Common formulas include secret game mechanics, hidden locations, and plot twists.
+    </li>
+    <li><strong>Mystery</strong>
+    - A game can't be composed of only twists, so an Epiphany Game ought to have a continuous curiosity-driven gameplay loop as well.
+    There should be clues that dangle the answers in front of the player like a carrot on a stick,
+    and answers should lead to more questions.
+    Running into random walls to find a hidden door is not a good mystery.
+    A map that must be deciphered to find that same hidden door, in contrast, is a mystery.
+    </li>
+    <li><strong>Agency</strong>
+    - Curiosity is the engine that drives an Epiphany Game.
+    The engine does not work if the player is told what to do all the time.
+    The game needs to trust the player to come up with their own questions.
+    Then, when answers are found, it feels like a personal accomplishment rather than an inevitable outcome.
+    A movie with a twist at the end is not an Epiphany Game, because the viewer lacks agency.
+    </li>
+    <li><strong>Worldbuilding</strong>
+    - A good Epiphany Game provides the player with an interesting world worth exploring.
+    Epiphanies are more satisfying when the worldbuilding is solid and the revelations make sense.
+    For example, let's say there is a hidden game mechanic where you can pull out a sword by pressing "S" seven times.
+    This feels arbitrary on its own, but it can be made interesting if there is a reason.
+    Perhaps you are a lonely robot wandering a post-apocalyptic world,
+    and among some ruins you have found schematics of your own design that include a hidden sword.
+    </li>
+</ul>
 <p>
-    <em>Full reviews done: 2 / 18. I plan to write reviews of all of them!</em>
+    In my opinion, a good Epiphany Game is the most satisfying experience in all of media,
+    but there is a problem - each one can only be played once! For that reason, I am always seeking more.
+    Here is a spoiler-free tier list of Epiphany Games I've completed!
+    (And <a href="/epiphanylist/scoring">here is how the scoring works</a>)
 </p>
 
 <h2>S Tier</h2>
@@ -83,9 +116,22 @@
 {%- endfor %}
 </div></div>
 
-<h2>D Tier</h2>
+<h2>Puzzle Box Tier</h2>
+<div class="fullrow"><p>
+    Puzzle Boxes are similar to Epiphany Games, except they lack worldbuilding.
+</p></div>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyD %}
+{%- for game in collections.epiphanyPuzzleBox %}
+{% include "epiphanygamesummary.njk" %}
+{%- endfor %}
+</div></div>
+
+<h2>Borderline Tier</h2>
+<div class="fullrow"><p>
+    Games in this tier have Epiphany Game elements, but it is not the core experience.
+</p></div>
+<div class="fullrow"><div class="tierlist">
+{%- for game in collections.epiphanyBorderline %}
 {% include "epiphanygamesummary.njk" %}
 {%- endfor %}
 </div></div>
@@ -94,12 +140,21 @@
 <p>
     <ul>
         <li>
+            {{ externalLink("https://store.steampowered.com/app/835960/The_Talos_Principle_2/", "The Talos Principle 2") -}}:
+            In the first game, you start with no knowledge of the world.
+            In the second game, you spend an hour learning about the world before you even start.
+            And, the characters in the game constantly talk to you and tell you what is happening, rather than letting you figure it out for yourself.
+            Talos Principle 2 is a different kind of game. It removes most Epiphany Game elements and focuses on the puzzles.
+        <li>
             {{ externalLink("https://store.steampowered.com/app/736260/Baba_Is_You/", "Baba is You") -}}:
             Is a fantastic puzzle game
             {%- call sidenote("sn-puzzle") %}
-            There is overlap between puzzle games and Epiphany Games, since a good puzzle demands
-            that the player fully understand the problem. The difference, I suppose,
-            is whether the puzzle exists alone or as part of a larger world. Check out
+            There is overlap between puzzle games and Epiphany Games.
+            A good puzzle demands that the player fully explore the problem,
+            just like you would explore the solar system of Outer Wilds.
+            The difference, I suppose, is whether you're exploring a world someone designed, or raw math.
+            That said, many Epiphany Games are also puzzle games.
+            Check out
             {{ externalLink("https://thinkygames.com/lists/thinky-essentials/", "Thinky Essentials") }}
             for a good list of puzzle games with a bias toward epiphanies.
             {% endcall -%}.
@@ -108,12 +163,13 @@
         </li>
         <li>
             {{ externalLink("https://store.steampowered.com/app/1677770/The_Case_of_the_Golden_Idol/", "The Case of the Golden Idol") -}}:
-            A detective game like Obra Dinn, but unlike Obra Dinn, it's episodic and you don't get to walk around.
-            This makes it less of an Epiphany Game.
+            A detective game like Obra Dinn, but the player has less agency, and the twists are mostly limited to discrete short levels.
+            There is one big reveal, but - at the risk of offending those who didn't see it - it's really obvious.
         <li>
             {{ externalLink("https://playcebo.itch.io/12-word-searches", "12 word searches") -}}:
-            Actually fits the Epiphany Game definition quite well, but being a short pen-and-paper game,
-            it isn't the same scope as the games in the list. I really liked it, though!
+            This actually could go in the Puzzle Box tier,
+            but being a short pen-and-paper game, it isn't the same scope as the games in the list.
+            I really liked it, though!
         </li>
         <li>
             {{ externalLink("https://letibus.bigcartel.com/product/lok", "LOK") -}}:
@@ -122,3 +178,4 @@
         </li>        
     </ul>
 </p>
+

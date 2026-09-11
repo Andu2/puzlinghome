@@ -16,3 +16,5 @@ Minified font files
 Make favicon pink
 
 Get away from Nunjucks and 11ty and use something more component-oriented
+
+Split epiphany socre into self-driven and amazing world

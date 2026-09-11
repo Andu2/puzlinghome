@@ -6,6 +6,13 @@
 {% from "link.njk" import externalLink %}
 {% extends "master.njk" %}
 {% block articleHead %}
+{% set scoreLabels = {
+    "1": "★",
+    "2": "★★",
+    "3": "★★★",
+    "4": "★★★★",
+    "5": "★★★★★"
+} %}
 <div class="fullrow flexrow">
     <img src="/epiphanylist/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
     <div class="reviewsummary">
@@ -16,9 +23,16 @@
         <dl class="reviewsummary-stats">
             <dt>Overall Score</dt>
             <dd>{{ score }}/10</dd>
-            <dt>Epiphany Strength</dt>
-            <dd>{{ epiphanyScore }}/10</dd>
+            <dt>Twists</dt>
+            <dd>{{ scoreLabels[(twists|string)] }}</dd>
+            <dt>Mystery</dt>
+            <dd>{{ scoreLabels[(mystery|string)] }}</dd>
+            <dt>Agency</dt>
+            <dd>{{ scoreLabels[(agency|string)] }}</dd>
+            <dt>Worldbuilding</dt>
+            <dd>{{ scoreLabels[(worldbuilding|string)] }}</dd>
         </dl>
+        <p><a href="/epiphanylist/scoring">(Scoring guide)</a></p>
         {%- if gameLinks %}
         <p class="tiercardlinks">
             {%- for link in gameLinks %}
@@ -31,13 +45,4 @@
         {% endif %}
     </div>
 </div>
-{% endblock %}
-{% block articleFooter %}
-{%- if proConList %}
-<ul class="proconlist">
-    {%- for item in proConList %}
-    <li class="{{ item.class }}">{{ item.value }}</li>
-    {%- endfor %}
-</ul>
-{%- endif %}
 {% endblock %}

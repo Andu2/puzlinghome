@@ -13,12 +13,6 @@
 //     document.getElementById("bg2").style.background = noiseUrl;
 // }, 100)
 
-document.querySelectorAll(".spoiler").forEach(function(element) {
-    element.addEventListener("click", function(e) {
-        e.target.style.backgroundColor = "var(--color-neutral-weak)";
-    });
-});
-
 // TODO: remove globals
 // function newJum() {
 //     return {

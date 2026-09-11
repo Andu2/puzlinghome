@@ -8,36 +8,23 @@
     "genre": "Metroidvania",
     "tier": "C",
     "tierJustification": "A few good epiphany moments were scattered throughout a tedious scavenger hunt. Most of the gameplay involves an exhaustive sweep of a world that's difficult to navigate. I wish there were more puzzles. It seems the final ending is not done yet, so I'll have to revisit this one later.",
-    "order": 10,
     "screenshot": "emuurom.png",
     "icon": "emuurom-icon.png",
     "summary": "A multi-layered scavenger hunt in a labyrinthian world.",
-    "score": "6",
-    "epiphanyScore": "5.5",
+    "score": 6,
+    "twists": 3,
+    "mystery": 2,
+    "agency": 3,
+    "worldbuilding": 2,
     "length": "50 hours",
     "gameLinks": [{
         "text": "Steam",
         "icon": "steam.svg",
         "url": "https://store.steampowered.com/app/1634360/EMUUROM/"
-    }],
-    "proConList": [{
-        "class": "positive",
-        "value": "Worldview-expanding hidden layers"
-    }, {
-        "class": "positive",
-        "value": "All dialogue can be reviewed at any time"
-    },{
-        "class": "subjective",
-        "value": "More about exploration than puzzles"
-    }, {
-        "class": "negative",
-        "value": "Confusing and cramped level design"
-    }, {
-        "class": "negative",
-        "value": "Frustrating physics"
     }]
 }
 ---
+{% from "spoiler.njk" import spoiler %}
 {% from "link.njk" import externalLink %}
 {% from "sidenote.njk" import sidenote %}
 <p>
@@ -60,7 +47,7 @@
     While the game provides a map,
     it is not always helpful because you could be on the same screen as where you're trying to go and
     yet still need to traverse the entire map to get there. 
-    And while there is a fast travel system, <span class="spoiler">it has a mandatory 20-second wait</span>.
+    And while there is a fast travel system, {{ spoiler("it has a mandatory 20-second wait") }}.
 </p>
 <p>
     Some of the game mechanics in EMUUROM are poorly crafted and frustrating. I cursed at my computer multiple times
@@ -74,12 +61,7 @@
 </p>
 <p>
     Like many games of its type, EMUUROM features a secret writing system. <br />
-    TUNIC (AND EMUUROM) SPOILERS: <span class="spoiler">
-        Like Tunic, the system is not a simple one-to-one mapping of letters to symbols, so it makes a fun puzzle.
-        However, the language encoded is not English, but rather a particular dialect of Finnish, spelled phonetically. 
-        Google Translate struggles on it, even when the messages are perfectly deciphered.
-        Fortunately (?), most of the text is lore, and only one single late-game puzzle required a translation to solve.
-    </span>
+    TUNIC (AND EMUUROM) SPOILERS: {{ spoiler("Like Tunic, the system is not a simple one-to-one mapping of letters to symbols, so it makes a fun puzzle. However, the language encoded is not English, but rather a particular dialect of Finnish, spelled phonetically. Google Translate struggles on it, even when the messages are perfectly deciphered. Fortunately (?), most of the text is lore, and only one single late-game puzzle required a translation to solve.") }}
     <br />
     I love secret writing systems, but deciphering this one was anticlimactic.
 </p>
@@ -98,4 +80,12 @@
     I still enjoyed it, though! The epiphany moments were good.
     It's just that the ratio of epiphany to busywork was low.
 </p>
+
+<ul class="proconlist">
+    <li class="positive">Worldview-expanding hidden layers</li>
+    <li class="positive">All dialogue can be reviewed at any time</li>
+    <li class="subjective">More about exploration than puzzles</li>
+    <li class="negative">Confusing and cramped level design</li>
+    <li class="negative">Frustrating physics</li>
+</ul>
 

@@ -1,4 +1,11 @@
 {% from "link.njk" import externalLink %}
+{% set scoreLabels = {
+    "1": "★",
+    "2": "★★",
+    "3": "★★★",
+    "4": "★★★★",
+    "5": "★★★★★"
+} %}
 <div class="tiercard">
     <div class="tiercardhead">
         <div>
@@ -8,21 +15,27 @@
             <p class="genre">{{ game.data.genre }} ~ {{ game.data.length }}</p>
             <dl class="reviewsummary-stats">
                 <dt>Overall Score</dt>
-                <dd>{{ game.data.score }}/10</dd>
-                <dt>Epiphany Score</dt>
-                <dd>{{ game.data.epiphanyScore }}/10</dd>
+                <dd>{{ game.data.score }}</dd>
+                <dt>Twists</dt>
+                <dd>{{ scoreLabels[(game.data.twists|string)] }}</dd>
+                <dt>Mystery</dt>
+                <dd>{{ scoreLabels[(game.data.mystery|string)] }}</dd>
+                <dt>Agency</dt>
+                <dd>{{ scoreLabels[(game.data.agency|string)] }}</dd>
+                <dt>Worldbuilding</dt>
+                <dd>{{ scoreLabels[(game.data.worldbuilding|string)] }}</dd>
             </dl>
         </div>
-        <img src="/epiphanylist/pageassets/{{ game.data.icon }}" alt="Icon for {{ game.data.title }}" />
+        <div class="tiercardaside">
+            <img src="/epiphanylist/pageassets/{{ game.data.icon }}" alt="Icon for {{ game.data.title }}" />
+            {%- if game.url %}
+            <a href="{{ game.url }}">Full review!</a>
+            {%- endif %}
+        </div>
     </div>
     <p>
         {{ game.data.tierJustification | safe }}
     </p>
-    {%- if game.url %}
-    <p>
-        <a href="{{ game.url }}">Full review!</a>
-    </p>
-    {%- endif %}
     <p class="tiercardlinks">
         {%- for link in game.data.gameLinks %}
         {% if link.icon %}

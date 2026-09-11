@@ -15,3 +15,12 @@
     {% endfor %}
 </ul>
 {% endmacro %}
+
+{% macro articleImage(src, alt="", caption="") %}
+<figure class="article-image">
+    <img src="{{ src }}" alt="{{ alt }}" />
+    {% if caption %}
+        <figcaption>{{ caption }}</figcaption>
+    {% endif %}
+</figure>
+{% endmacro %}
