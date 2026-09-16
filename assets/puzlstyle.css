@@ -286,7 +286,7 @@ article > * + * {
 
 article img {
     box-shadow: 0 4px 8px rgba(0,0,0,0.7);
-    width: 100%;
+    text-align: center;
 }
 
 article figure.article-image {

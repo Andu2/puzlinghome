@@ -136,15 +136,17 @@
 {%- endfor %}
 </div></div>
 
-<h2>Games I've Played That Don't Quite Fit</h2>
+<h2>Games That Don't Quite Fit</h2>
+<div class="fullrow"><div class="tierlist">
+{%- for game in collections.epiphanyNotEpiphany %}
+{% include "epiphanygamesummary.njk" %}
+{%- endfor %}
+</div></div>
+<p>
+    And others I don't have full reviews for:
+</p>
 <p>
     <ul>
-        <li>
-            {{ externalLink("https://store.steampowered.com/app/835960/The_Talos_Principle_2/", "The Talos Principle 2") -}}:
-            In the first game, you start with no knowledge of the world.
-            In the second game, you spend an hour learning about the world before you even start.
-            And, the characters in the game constantly talk to you and tell you what is happening, rather than letting you figure it out for yourself.
-            Talos Principle 2 is a different kind of game. It removes most Epiphany Game elements and focuses on the puzzles.
         <li>
             {{ externalLink("https://store.steampowered.com/app/736260/Baba_Is_You/", "Baba is You") -}}:
             Is a fantastic puzzle game

@@ -143,7 +143,7 @@ export default function(eleventyConfig) {
     });
 
     // for /epiphanylist
-    for (const tier of ["S", "A", "B", "C", "PuzzleBox", "Borderline"]) {
+    for (const tier of ["S", "A", "B", "C", "PuzzleBox", "Borderline", "NotEpiphany"]) {
         addEpiphanyTierCollection(eleventyConfig, tier);
     }
 
