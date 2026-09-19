@@ -17,4 +17,32 @@ Make favicon pink
 
 Get away from Nunjucks and 11ty and use something more component-oriented
 
-Split epiphany socre into self-driven and amazing world
+Add tier to review card
+
+Most recent reviews section
+
+## Reviewtodo order
+
+Talos Principle 2
+Talos Principle
+Antichamber
+Void Stranger
+Animal Well
+Blue Prince
+Chants of Sennaar
+Fez
+Echoes of the Eye
+Forgotten City
+Inscryption
+Obra Dinn
+The Witness
+Tunic
+Subnautica
+
+## Writing guide
+
+Ask questions, draw in curious people
+Only talk about what I have something to say about
+Many links!
+No typed words are AI, but AI is useful for review / spellcheck
+Imperfections and weirdness are okay, the common writing style has been devalued because of AI. As long as the ideas are communicated clearly

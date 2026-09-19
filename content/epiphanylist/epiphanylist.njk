@@ -4,7 +4,8 @@
     "title": "Epiphany Games",
     "withMargin": true,
     "createDate": "2026-06-18",
-    "updateDate": "2026-09-09"
+    "excludeFromRecent": true,
+    "updateDate": "2026-09-19"
 }
 ---
 {% from "spoiler.njk" import spoiler %}
@@ -87,6 +88,13 @@
     Here is a spoiler-free tier list of Epiphany Games I've completed!
     (And <a href="/epiphanylist/scoring">here is how the scoring works</a>)
 </p>
+
+<h3>Recently played</h3>
+<ol class="recently-added">
+{%- for game in collections.epiphanyRecent %}
+<li><span class="mono">{{ game.data.createDate }}</span> :: <a href="{{ game.url }}">{{ game.data.title }}</a> :: <em>{{ game.data.tier }} tier</em></li>
+{%- endfor %}
+</ol>
 
 <h2>S Tier</h2>
 <div class="fullrow"><div class="tierlist">

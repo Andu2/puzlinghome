@@ -80,6 +80,11 @@ h3 {
     font-size: 1.5em;
 }
 
+p.big {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 /* html {
     background-image: url("noise.svg");
     background-repeat: repeat;
@@ -359,6 +364,16 @@ article.with-margin > .metadata {
     /* background-color: var(--color-neutral-weak); */
 }
 
+article.with-margin > .backlink {
+    width: 270px;
+    margin-right: -300px;
+    margin-top: 0.3rem;
+    text-align: right;
+    float: right;
+    clear: right;
+    line-height: 1.4;
+}
+
 .marginnote {
     width: 270px;
     margin-right: -300px;
@@ -557,6 +572,14 @@ footer {
 
 .mono {
     font-family: monospace;
+}
+
+ul.recently-added {
+    list-style: none;
+    margin: 0 0 1.5rem 0;
+    padding-left: 0;
+    display: grid;
+    gap: 0.35rem;
 }
 
 img.preview {
@@ -825,7 +848,7 @@ ul.image-gallery figcaption {
         margin-right: 0;
     }
 
-    .marginnote, article.with-margin > .metadata {
+    .marginnote, article.with-margin > .metadata, article.with-margin > .backlink {
         text-align: left;
         float: none;
         margin-right: 0;

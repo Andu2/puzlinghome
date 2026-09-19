@@ -128,7 +128,7 @@ export default function(eleventyConfig) {
     eleventyConfig.addCollection("sortedPages", function(collectionApi) {
         return collectionApi.getAll()
         .filter(function(page) {
-            return !!page.data.createDate
+            return !!page.data.createDate && page.data.permalink !== false
         })
         .sort(function(a, b) {
             const aDate = a.data.updateDate || a.data.createDate;
@@ -140,6 +140,21 @@ export default function(eleventyConfig) {
                 return b.date - a.date;
             }
         });
+    });
+
+    eleventyConfig.addCollection("epiphanyRecent", function(collectionApi) {
+        return collectionApi.getFilteredByTag("epiphanygame")
+        .filter(function(page) {
+            return !!page.data.createDate && page.data.permalink !== false && page.data.excludeFromRecent !== true;
+        })
+        .sort(function(a, b) {
+            const aDate = a.data.createDate;
+            const bDate = b.data.createDate;
+            if (aDate > bDate) return -1;
+            if (aDate < bDate) return 1;
+            return 0;
+        })
+        .slice(0, 5);
     });
 
     // for /epiphanylist

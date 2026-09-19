@@ -58,6 +58,10 @@
                     </dl>
                 </div>
                 {%- endif %}
+                {%- if tags and tags.includes('epiphanygame') %}
+                <p class="backlink"><a href="/epiphanylist/scoring">Scoring Guide</a></p>
+                <p class="backlink"><a href="/epiphanylist/">Back to Epiphany Games list</a></p>
+                {%- endif %}
                 {{ content | safe }}
                 {%- block articleFooter %}
                 {%- endblock %}
