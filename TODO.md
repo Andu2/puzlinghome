@@ -17,14 +17,13 @@ Make favicon pink
 
 Get away from Nunjucks and 11ty and use something more component-oriented
 
-Add tier to review card
+Markdown versions of every page
 
-Most recent reviews section
+sidenote ID auto-increment
 
 ## Reviewtodo order
 
 Talos Principle 2
-Talos Principle
 Antichamber
 Void Stranger
 Animal Well
@@ -41,7 +40,7 @@ Subnautica
 
 ## Writing guide
 
-Ask questions, draw in curious people
+Ask questions, draw in curious people. Lead with unusual statements first
 Only talk about what I have something to say about
 Many links!
 No typed words are AI, but AI is useful for review / spellcheck
