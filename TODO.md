@@ -21,6 +21,8 @@ Markdown versions of every page
 
 sidenote ID auto-increment
 
+Ensure trailing slash on site links
+
 ## Reviewtodo order
 
 Talos Principle 2

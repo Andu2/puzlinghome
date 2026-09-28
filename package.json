@@ -6,7 +6,6 @@
     "lightningcss": "^1.32.0"
   },
   "scripts": {
-    "build": "npx @11ty/eleventy --input=content --output=_site",
-    "buildprod": "npx @11ty/eleventy --input=content --output=_siteprod"
+    "build": "npx @11ty/eleventy --input=content --output=_site"
   }
 }
