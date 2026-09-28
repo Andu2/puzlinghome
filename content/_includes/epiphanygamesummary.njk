@@ -27,7 +27,7 @@
             </dl>
         </div>
         <div class="tiercardaside">
-            <img src="/epiphanylist/pageassets/{{ game.data.icon }}" alt="Icon for {{ game.data.title }}" />
+            <img src="/epiphanygames/pageassets/{{ game.data.icon }}" alt="Icon for {{ game.data.title }}" />
             {%- if game.url %}
             <a href="{{ game.url }}">Full review!</a>
             {%- endif %}
@@ -39,7 +39,7 @@
     <p class="tiercardlinks">
         {%- for link in game.data.gameLinks %}
         {% if link.icon %}
-        <img class="inline-icon" src="/epiphanylist/pageassets/{{ link.icon }}" />
+        <img class="inline-icon" src="/epiphanygames/pageassets/{{ link.icon }}" />
         {% endif %}
         {{ externalLink(link.url, link.text) }}
         {%- endfor %}

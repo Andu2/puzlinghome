@@ -157,7 +157,7 @@ export default function(eleventyConfig) {
         .slice(0, 5);
     });
 
-    // for /epiphanylist
+    // for /epiphanygames
     for (const tier of ["S", "A", "B", "C", "PuzzleBox", "Borderline", "NotEpiphany"]) {
         addEpiphanyTierCollection(eleventyConfig, tier);
     }

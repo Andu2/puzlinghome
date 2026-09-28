@@ -23,7 +23,7 @@
     "NotEpiphany": "Not Epiphany Game"
 } %}
 <div class="fullrow flexrow">
-    <img src="/epiphanylist/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
+    <img src="/epiphanygames/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
     <div class="reviewsummary">
         <p class="genre">{{ genre }}<br />{{ length }}</p>
         <p>
@@ -46,7 +46,7 @@
         <p class="tiercardlinks">
             {%- for link in gameLinks %}
             {% if link.icon %}
-            <img class="inline-icon" src="/epiphanylist/pageassets/{{ link.icon }}" />
+            <img class="inline-icon" src="/epiphanygames/pageassets/{{ link.icon }}" />
             {% endif %}
             {{ externalLink(link.url, link.text) }}
             {%- endfor %}
