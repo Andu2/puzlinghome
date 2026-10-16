@@ -43,6 +43,11 @@
             <article{% if withMargin != false %} class="with-margin"{% endif %}>
                 <h1>{{ title }}</h1>
                 {%- block articleHead %}
+                {%- if headerImage -%}
+                <div class="fullrow">
+                    <img src="{{headerImage}}" />
+                </div>
+                {%- endif -%}
                 {%- endblock %}
                 {%- if createDate or updateDate %}
                 <div class="metadata">
@@ -59,7 +64,7 @@
                 </div>
                 {%- endif %}
                 {%- if tags and tags.includes('epiphanygame') %}
-                <p class="backlink"><a href="/epiphanygames/scoring">Scoring Guide</a></p>
+                <p class="backlink"><a href="/epiphanygames/scoring/">Scoring Guide</a></p>
                 <p class="backlink"><a href="/epiphanygames/">Back to Epiphany Games list</a></p>
                 {%- endif %}
                 {{ content | safe }}

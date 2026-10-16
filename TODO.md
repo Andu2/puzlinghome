@@ -25,7 +25,6 @@ Ensure trailing slash on site links
 
 ## Reviewtodo order
 
-Talos Principle 2
 Antichamber
 Void Stranger
 Animal Well
@@ -45,5 +44,6 @@ Subnautica
 Ask questions, draw in curious people. Lead with unusual statements first
 Only talk about what I have something to say about
 Many links!
+More screenshots!
 No typed words are AI, but AI is useful for review / spellcheck
 Imperfections and weirdness are okay, the common writing style has been devalued because of AI. As long as the ideas are communicated clearly

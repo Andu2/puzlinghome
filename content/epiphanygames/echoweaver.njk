@@ -1,0 +1,73 @@
+---
+{
+    "createDate": "2026-10-15",
+    "tags": "epiphanygame",
+    "layout": "epiphanygamereview.njk",
+    "title": "Echo Weaver",
+    "genre": "Metroidvania",
+    "icon": "echoweaver-icon.png",
+    "screenshot": "echoweaver.png",
+    "tier": "NotEpiphany",
+    "tierJustification": "dfgdg",
+    "summary": "Determine what the aliens are trying to say, then answer their homework problems.",
+    "score": 5.5,
+    "twists": 3,
+    "mystery": 1,
+    "agency": 3,
+    "worldbuilding": 2,
+    "length": "15 hours",
+    "year": 2026,
+    "gameLinks": [{
+        "text": "Steam",
+        "icon": "steam.svg",
+        "url": "https://store.steampowered.com/app/2184080/Echo_Weaver/"
+    }]
+}
+---
+{% from "spoiler.njk" import spoiler %}
+{% from "sidenote.njk" import sidenote %}
+{% from "link.njk" import externalLink %}
+{% from "imagegallery.njk" import articleImage %}
+
+<p>
+    Wake up babe! New game-where-all-the-progression-happens-in-your-head-and-you-can-technically-win-the-game-within-the-first-few-minutes-of-playing-if-you-know-how just dropped!
+</p>
+<p>
+    This time, the {{externalLink("https://thinkygames.com/features/metroidbrainia-an-in-depth-exploration-of-knowledge-gated-games/", "metroidbrainia")}} is a metroidvania. Echo Weaver is a 2D platformer where you're stuck in a time loop. You start in the same place every loop, and all your abilities are unlocked by knowledge rather than game state. Once you know all the tools and shortcuts, it is just as easy to win the game on the first loop as the hundredth. Just like <a href="/epiphanygames/outerwilds/">Outer Wilds!</a>
+</p>
+<p>
+    And yet, playing Echo Weaver feels nothing like playing Outer Wilds, even though it is built with some of the same parts. It is not the time loop or knowledge-based progression that makes Outer Wilds a cult classic, it's the game design philosophy. Vincent van Gogh and my mom could both paint a picture of the sky, but only one will be <em>The Starry Night</em>. Outer Wilds is great because of how successful it is at its singular goal of piquing the player's curiosity. It makes the player feel like they're exploring the game to answer their <em>own</em> questions. Echo Weaver is not as successful at piquing curiosity, and so is less able to trust the player. Its secrets are revealed not when the player seeks answers, but rather when the player passes the next platforming challenge. The answers come before the questions, and the feeling of mystery that makes Outer Wilds wonderful is missing.
+</p>
+<p>
+    Effectively, despite the time loop and knowledge-gated abilities, Echo Weaver feels like a standard indie metroidvania, one among hundreds. When you think about it, a game such as Hollow Knight has an implicit time loop when you die and respawn at a save location, so Echo Weaver's loop isn't actually that different - it just involves a few more steps. And the fact that Echo Weaver's abilities can be unlocked from the start of the game feels like an irrelevant technicality when playing the game for the first time. You still need to unlock the ability by finding the place where it is taught, just like a normal metroidvania. If you do, in fact, manage to learn an ability on your own before you're supposed to, you end up skipping content on accident and becoming confused.
+    {%- call sidenote("sn-skip") %}
+    I brute-forced a kind of combination lock and skipped an entire section of the map. When I later went back for completeness, I found that in addition to the answers to the combination lock, I had missed an entire quest and fast-travel method, as well as some dialogue elucidating two abilities that I had already figured out on my own.
+    {% endcall %}
+</p>
+<p>
+    Well, whatever. It's not a game that'll change my world view. I still like metroidvanias, so how is it as a metroidvania?
+</p>
+<p>
+    It's...okay. The secret abilities involve movement techniques like grappling and gaining an extra jump, as well as breaking certain walls. Fun, but nothing I haven't seen before. The most interesting abilities have to do with teleportation and fast travel. Since you only get a maximum of 13 minutes each run, and every run begins at the start location, the fast travel options need to be powerful and flexible. Encountering the fast travel hub for the first time was the most exciting reveal in the game.
+</p>
+{{ articleImage(
+    "/epiphanygames/pageassets/echoweaver-platforming.png",
+    "Echo Weaver precision platforming section"
+) }}
+<p>
+    There is simple combat and a tiny bit of puzzling, but most of the gameplay consists of platforming challenges. Unfortunately, for as much time is spent jumping around, the platforming controls and mechanics are not the game's strength.
+    {%- call sidenote("sn-difficulty") %}
+    As someone with experience in precision platformers such as {{externalLink("https://store.steampowered.com/app/40800/Super_Meat_Boy/", "Super Meat Boy")}}, I did not find the platforming to be too difficult. The exception was one specific section near the very end of the game that was hard enough that I thought I missed an ability somewhere. Thankfully, the difficulty was reduced in a recent patch.
+    {% endcall %}
+</p>
+<p>
+    I found the writing confusing. Even after beating the game, I don't really understand who my character was, or why there was a time loop, or what the bad guys were doing that was bad, or why what I did to win was good. Dialogue between characters felt unnatural. My lack of engagement with the story and characters is a big reason why the game didn't pique my curiosity. I just didn't understand anything well enough to speculate on what I may discover next.
+</p>
+<p>
+    Another big reason the game didn't hit for me is that, despite having the "puzzle" tag on Steam, it doesn't have many actual puzzles. Most of the puzzly-looking elements are just fetch quests in disguise, as the answers can be found by exploring. That said, the most memorable concept in the whole game for me was the solution to one of these puzzles - {{ spoiler("the keypad puzzle, where an unknown writing system is not what it seems") -}}. This is a great idea for an epiphany game puzzle. At first it can be solved one way, and then later information totally reframes the problem! I only wish the game had trusted me to figure it out with cryptic hints rather than practically showing the solution step-by-step.
+</p>
+
+<ul class="proconlist">
+    <li class="subjective">Platforming challenges, not puzzles</li>
+    <li class="negative">Confusing dialogue and story</li>
+</ul>

@@ -1,21 +1,23 @@
 ---
 {
-    "permalink": false,
     "tags": "epiphanygame",
     "layout": "epiphanygamereview.njk",
     "title": "Antichamber",
     "genre": "Puzzle box",
+    "createDate": "2026-09-28",
     "excludeFromRecent": true,
+    "screenshot": "antichamber.png",
     "icon": "antichamber-icon.png",
     "tier": "PuzzleBox",
     "tierJustification": "I played this one before any others on this list. Back then, I thought it was the coolest game I'd ever played. It's hard for me to rate it now that I've played many more such games. As a puzzle box game, it lacks worldbuilding, so the epiphanies don't hit as hard. It's also the shortest game in this list.",
-    "summary": "Chewnic",
-    "score": 6.5,
+    "summary": "Venture through the RGB halls where space doesn't work right. Discover life advice.",
+    "score": 7,
     "twists": 2,
     "mystery": 3,
     "agency": 4,
     "worldbuilding": 1,
-    "length": "5 hours",
+    "length": "6 hours",
+    "year": 2013,
     "gameLinks": [{
         "text": "Steam",
         "icon": "steam.svg",
@@ -23,6 +25,21 @@
     }]
 }
 ---
+{% from "spoiler.njk" import spoiler %}
+{% from "sidenote.njk" import sidenote %}
+{% from "link.njk" import externalLink %}
+{% from "imagegallery.njk" import articleImage %}
+
+
+
+-------
+
+
+This game came before Subnautica, Outer Wilds, and the like.
+
+Antichamber is a short first-person puzzle game where 
+
+Logo is a penrose triangle
 <p>
     <em>Antichamber</em> is the most difficult game in the <a href="/epiphanygames/">Epiphany Games list</a>
     for me to rate, because it is the first one I played.
@@ -30,15 +47,21 @@
     Back then, I thought it was the coolest game I had ever played, and I tried to get my friends to play it
     (although not as zealously as I now try to get my friends to play <a href="/epiphanygames/outerwilds/">Outer Wilds</a>).
 </p>
+The world design in Antichamber is very simplistic, with a lot of featureless hallways.
+And yet, it manages to have a more mysterious atmosphere than similarly simple first-person puzzle box games such as Lingo and Chroma Zero.
+I think part of it is that it actually has sound.
+It also pulls off the simple graphics much better
 <p>
     I replayed it recently before writing this review. Is it still a cool game?
     Yeah, but it's not as mind-blowing as it was, and it only took me 2 hours to beat again.
 </p>
+Generic wise words, which you have to link to the specifics of the puzzle
 <p>
     <em>Antichamber</em> pioneered a non-Portal version of "non-Euclidean geometry",
     which is now seen in other games such as <a href="/epiphanygames/lingo/">Lingo</a>.
     It is used very tastefully, and not overdone.
 </p>
+Doesn't lean on mazeness, which is good because that got tedious in Lingo
 <p>
     The puzzles in Antichamber feature one of two themes:
     Physics not working the way you would expect it to,
@@ -47,7 +70,26 @@
 <p>
     The block-of-matter puzzles can be circumvented by progressing further.
 </p>
+decimeter-sized blocks
 <p>
     Antichamber is a short game, so it doesn't make sense to waste a bunch of bytes on this review.
     Just check it out and see if you like it as much as I did.
 </p>
+
+    {%- call sidenote("sn-noneuclidean") %}
+    Upon doing research for this article, I have learned that the term
+    "non-Euclidean geometry" traditionally refers to either hyperbolic geometry or elliptical geometry.
+    Antichamber still features standard parallel lines, so it uses normal Euclidean geometry, but with some wormholes.
+    It's more like an impossible object.
+    {% endcall -%}.
+
+{{ articleImage(
+    "/epiphanygames/pageassets/antichamber-words.png",
+    "Sign from Antichamber that says \"Failing to succeed does not mean failing to progress.\""
+) }}
+
+<ul class="proconlist">
+    <li class="positive">All challenges are unique and there is no tedious filler</li>
+    <li class="subjective">More about exploration than puzzles</li>
+    <li class="negative">Frustrating physics</li>
+</ul>
