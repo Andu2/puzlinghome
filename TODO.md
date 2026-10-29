@@ -23,6 +23,8 @@ sidenote ID auto-increment
 
 Ensure trailing slash on site links
 
+Braille as decoration: ⡢
+
 ## Reviewtodo order
 
 Antichamber
