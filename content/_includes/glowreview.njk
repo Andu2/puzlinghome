@@ -7,10 +7,10 @@
 {% extends "master.njk" %}
 {% block articleHead %}
 {% set scoreLabels = {
-    "1": "★",
-    "2": "★★",
-    "3": "★★★",
-    "4": "★★★★",
+    "1": "★☆☆☆☆",
+    "2": "★★☆☆☆",
+    "3": "★★★☆☆",
+    "4": "★★★★☆",
     "5": "★★★★★"
 } %}
 {% set tierLabels = {
@@ -23,9 +23,9 @@
     "NotEpiphany": "Not Epiphany Game"
 } %}
 <div class="fullrow flexrow">
-    <img src="/epiphanygames/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
+    <img src="/glow/pageassets/{{ screenshot }}" alt="Screenshot from {{ title }}" />
     <div class="reviewsummary">
-        <p class="genre">({{game.data.year}}) {{ genre }}<br />{{ length }}</p>
+        <p class="genre">{{year}} {{ genre }}<br />{{ length }}</p>
         <p>
             {{ summary }}
         </p>
@@ -41,12 +41,11 @@
             <dt>Worldbuilding</dt>
             <dd>{{ scoreLabels[(worldbuilding|string)] }}</dd>
         </dl>
-        <p>Epiphany Game rating: <em>{{ tierLabels[tier] or tier }}</em></p>
         {%- if gameLinks %}
         <p class="tiercardlinks">
             {%- for link in gameLinks %}
             {% if link.icon %}
-            <img class="inline-icon" src="/epiphanygames/pageassets/{{ link.icon }}" />
+            <img class="inline-icon" src="/glow/pageassets/{{ link.icon }}" />
             {% endif %}
             {{ externalLink(link.url, link.text) }}
             {%- endfor %}

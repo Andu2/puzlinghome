@@ -4,50 +4,63 @@
     "title": "Games Like Outer Wilds",
     "createDate": "2026-06-18",
     "excludeFromRecent": true,
-    "updateDate": "2026-09-19"
+    "updateDate": "2026-11-02"
 }
 ---
 {% from "spoiler.njk" import spoiler %}
 {% from "sidenote.njk" import sidenote %}
 {% from "link.njk" import externalLink %}
 {% from "imagegallery.njk" import articleImage %}
+{% set tierLabels = {
+    "S": "S",
+    "A": "A",
+    "B": "B",
+    "C": "C",
+    "PuzzleBox": "Puzzle Box",
+    "Borderline": "Borderline",
+    "NotGLOW": "Not Like Outer Wilds"
+} %}
 
 <p>
-    <a href="/epiphanygames/about/">About</a>
+    Outer Wilds is my favorite game. I've played many games in search of another Game Like Outer Wilds. This page contains my thoughts on each one.
+    I also post these reviews on {{externalLink("https://gameslikeouterwilds.substack.com/", "Substack!")}}
+</p> 
+<p>
+    <a href="/glow/about/">What makes a game Like Outer Wilds?</a>
 </p>
 
 <h3>Recently played</h3>
 <ol class="recently-added">
-{%- for game in collections.epiphanyRecent %}
-<li><span class="mono">{{ game.data.createDate }}</span> :: <a href="{{ game.url }}">{{ game.data.title }}</a> :: <em>{{ game.data.tier }} tier</em></li>
+{%- for game in collections.glowRecent %}
+<li><span class="mono">{{ game.data.createDate }}</span> :: <a href="{{ game.url }}">{{ game.data.title }}</a> :: <em>{{ tierLabels[game.data.tier] }} tier</em></li>
 {%- endfor %}
 </ol>
 
 <h2>S Tier</h2>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyS %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowS %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 
 <h2>A Tier</h2>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyA %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowA %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 
 <h2>B Tier</h2>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyB %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowB %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 
 <h2>C Tier</h2>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyC %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowC %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 
@@ -56,8 +69,8 @@
     Puzzle Boxes are similar to Epiphany Games, except they lack worldbuilding.
 </p></div>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyPuzzleBox %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowPuzzleBox %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 
@@ -66,15 +79,15 @@
     Games in this tier have Epiphany Game elements, but it is not the core experience.
 </p></div>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyBorderline %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowBorderline %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 
 <h2>Games That Don't Quite Fit</h2>
 <div class="fullrow"><div class="tierlist">
-{%- for game in collections.epiphanyNotEpiphany %}
-{% include "epiphanygamesummary.njk" %}
+{%- for game in collections.glowNotGLOW %}
+{% include "glowsummary.njk" %}
 {%- endfor %}
 </div></div>
 <p>

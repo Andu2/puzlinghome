@@ -97,10 +97,10 @@ async function buildAssetManifest() {
     return nextManifest;
 }
 
-function addEpiphanyTierCollection(eleventyConfig, tier) {
-    const collectionName = `epiphany${tier}`;
+function addGlowTierCollection(eleventyConfig, tier) {
+    const collectionName = `glow${tier}`;
     eleventyConfig.addCollection(collectionName, function(collectionApi) {
-        const fullList = collectionApi.getFilteredByTag("epiphanygame");
+        const fullList = collectionApi.getFilteredByTag("glow");
         return fullList.filter(function(item) {
             return item.data.tier == tier;
         }).sort(function(a, b) {
@@ -110,7 +110,7 @@ function addEpiphanyTierCollection(eleventyConfig, tier) {
                 return aOrder - bOrder;
             } else {
                 if (!a.data.score || !b.data.score) {
-                    throw new Error("Epiphany game missing a score");
+                    throw new Error("GLOW missing a score");
                 }
                 return b.data.score - a.data.score;
             }
@@ -142,8 +142,8 @@ export default function(eleventyConfig) {
         });
     });
 
-    eleventyConfig.addCollection("epiphanyRecent", function(collectionApi) {
-        return collectionApi.getFilteredByTag("epiphanygame")
+    eleventyConfig.addCollection("glowRecent", function(collectionApi) {
+        return collectionApi.getFilteredByTag("glow")
         .filter(function(page) {
             return !!page.data.createDate && page.data.permalink !== false && page.data.excludeFromRecent !== true;
         })
@@ -157,9 +157,9 @@ export default function(eleventyConfig) {
         .slice(0, 5);
     });
 
-    // for /epiphanygames
-    for (const tier of ["S", "A", "B", "C", "PuzzleBox", "Borderline", "NotEpiphany"]) {
-        addEpiphanyTierCollection(eleventyConfig, tier);
+    // for /glow
+    for (const tier of ["S", "A", "B", "C", "PuzzleBox", "Borderline", "NotGLOW"]) {
+        addGlowTierCollection(eleventyConfig, tier);
     }
 
     eleventyConfig.addGlobalData("assetManifest", async function() {
